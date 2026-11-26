@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+
+# Pre-launch: pages also use <meta name="robots" content="noindex">.
+# Before public launch, change to Allow: / and set Sitemap to the live domain.
+
+Sitemap: https://talky.dawidw.pl/sitemap.xml

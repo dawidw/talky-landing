@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Talky</title>
+  <link>https://talky.dawidw.pl/appcast.xml</link>
+  <description>Talky for Mac release notes</description>
+  <language>en</language>
+    <item>
+      <title>0.1.0</title>
+      <sparkle:version>0.1.0</sparkle:version>
+      <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+      <pubDate>PLACEHOLDER_RFC822_DATE</pubDate>
+      <description><![CDATA[
+        <p>Placeholder appcast entry. Replace PLACEHOLDER_DMG_URL with the signed Talky.dmg URL before shipping.</p>
+      ]]></description>
+      <enclosure url="PLACEHOLDER_DMG_URL" sparkle:edSignature="PLACEHOLDER_ED_SIGNATURE" length="PLACEHOLDER_BYTES" type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>
