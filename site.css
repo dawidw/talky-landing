@@ -87,9 +87,9 @@ nav .brand {
 }
 
 nav .brand img {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
 }
 
 nav .spacer {
@@ -132,7 +132,7 @@ nav .nav-toggle {
   font-weight: 600;
   font-size: 16px;
   white-space: nowrap;
-  transition: transform 0.18s ease, box-shadow 0.25s ease;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, background-color 0.18s ease;
 }
 
 .btn-primary.lg {
@@ -140,8 +140,9 @@ nav .nav-toggle {
 }
 
 .btn-primary:hover {
+  background: #d2d2d7;
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px -16px rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
 }
 
 .btn-secondary {
@@ -230,9 +231,7 @@ nav .nav-toggle {
 }
 
 .hero-screen img,
-.feature-screen img,
-.screen-shot img,
-.pill-state img {
+.feature-screen img {
   display: block;
   width: 100%;
   height: auto;
@@ -242,62 +241,15 @@ nav .nav-toggle {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
+.feature-with-screen {
+  display: flex;
+  flex-direction: column;
+}
+
 .feature-with-screen .feature-screen {
-  margin: 0 0 var(--space-5);
+  margin: auto 0 0;
+  padding-top: var(--space-6);
   line-height: 0;
-}
-
-.features-subhead {
-  margin-top: var(--stack-lg);
-  margin-bottom: var(--space-5);
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--tertiary);
-}
-
-.screen-shot-wide {
-  margin: 0;
-  max-width: min(960px, 100%);
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 0;
-}
-
-.pill-states-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
-}
-
-.pill-state {
-  margin: 0;
-  line-height: 0;
-}
-
-.screen-duo {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  max-width: min(1120px, 100%);
-  margin: 0 auto;
-}
-
-.screen-shot {
-  margin: 0;
-  line-height: 0;
-}
-
-@media (min-width: 900px) {
-  .pill-states-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .screen-duo {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .kbd {

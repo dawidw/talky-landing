@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=hero-cta1">
+  <link rel="stylesheet" href="/site.css?v=screens4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,7 +42,7 @@
   <header class="wrap">
     <nav class="site" aria-label="Primary">
       <a class="brand" href="/">
-        <img src="/assets/talky-icon.png" width="26" height="26" alt="">
+        <img src="/assets/talky-icon.svg" width="38" height="38" alt="">
         Talky
       </a>
       <span class="spacer"></span>
@@ -72,8 +72,8 @@
       <div class="demo-wrap">
         <figure class="hero-screen">
           <picture>
-            <source type="image/webp" srcset="/assets/screens/panel-expanded@2x.webp">
-            <img src="/assets/screens/panel-expanded@2x.png" width="560" height="420" alt="Talky expanded panel with Listen, Scratchpad, Meeting, and the hint bar: hold to talk, paste, copy only, and close" decoding="async" fetchpriority="high">
+            <source type="image/webp" srcset="/assets/screens/panel-expanded@2x.webp 1120w, /assets/screens/panel-expanded@3x.webp 1680w" sizes="(min-width: 960px) 920px, 100vw">
+            <img src="/assets/screens/panel-expanded@2x.png" srcset="/assets/screens/panel-expanded@2x.png 1120w, /assets/screens/panel-expanded@3x.png 1680w" sizes="(min-width: 960px) 920px, 100vw" width="560" height="420" alt="Talky expanded panel with Listen, Voice memo, Meeting, Scratchpad, and the hint bar" decoding="async" fetchpriority="high">
           </picture>
         </figure>
       </div>
@@ -86,123 +86,41 @@
       </div>
       <div class="features-grid">
         <article class="feature feature-with-screen">
-          <figure class="feature-screen">
-            <picture>
-              <source type="image/webp" srcset="/assets/screens/pill-listening@2x.webp">
-              <img src="/assets/screens/pill-listening@2x.png" width="560" height="200" alt="Talky menu bar pill while listening for dictation" loading="lazy" decoding="async">
-            </picture>
-          </figure>
           <p class="icon-tile"><img src="/assets/icons/mic.svg" alt=""></p>
           <h3>Hold to talk</h3>
           <p>Hold Ctrl+Shift, speak, release. Your words land in whatever field is active.</p>
-        </article>
-        <article class="feature feature-with-screen">
           <figure class="feature-screen">
             <picture>
-              <source type="image/webp" srcset="/assets/screens/scratchpad-notes@2x.webp">
-              <img src="/assets/screens/scratchpad-notes@2x.png" width="960" height="590" alt="Talky scratchpad with dictation notes" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/screens/pill-listening@2x.webp 1120w, /assets/screens/pill-listening@3x.webp 1680w" sizes="(min-width: 900px) 360px, 100vw">
+              <img src="/assets/screens/pill-listening@2x.png" srcset="/assets/screens/pill-listening@2x.png 1120w, /assets/screens/pill-listening@3x.png 1680w" sizes="(min-width: 900px) 360px, 100vw" width="560" height="200" alt="Talky menu bar pill while listening for dictation" loading="lazy" decoding="async">
             </picture>
           </figure>
+        </article>
+        <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/scratchpad.svg" alt=""></p>
           <h3>Scratchpad</h3>
           <p>Every dictation and meeting in one searchable place. Copy or paste with one key.</p>
         </article>
-        <article class="feature feature-with-screen">
-          <figure class="feature-screen">
-            <picture>
-              <source type="image/webp" srcset="/assets/screens/scratchpad-meeting@2x.webp">
-              <img src="/assets/screens/scratchpad-meeting@2x.png" width="960" height="590" alt="Talky scratchpad meeting transcript with speaker labels" loading="lazy" decoding="async">
-            </picture>
-          </figure>
+        <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/users.svg" alt=""></p>
           <h3>Meeting notes with speakers</h3>
           <p>Record a call and get a transcript labeled Me, Speaker 1, Speaker 2.</p>
         </article>
-        <article class="feature feature-with-screen">
-          <figure class="feature-screen">
-            <picture>
-              <source type="image/webp" srcset="/assets/screens/onboarding-permissions@2x.webp">
-              <img src="/assets/screens/onboarding-permissions@2x.png" width="560" height="609" alt="Talky onboarding permissions on your Mac" loading="lazy" decoding="async">
-            </picture>
-          </figure>
+        <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/shield.svg" alt=""></p>
           <h3>100% local</h3>
           <p>Speech is transcribed on your Mac with Parakeet. No account, no cloud, nothing to sign up for.</p>
         </article>
-        <article class="feature feature-with-screen">
-          <figure class="feature-screen">
-            <picture>
-              <source type="image/webp" srcset="/assets/screens/preferences@2x.webp">
-              <img src="/assets/screens/preferences@2x.png" width="720" height="887" alt="Talky preferences with optional API key" loading="lazy" decoding="async">
-            </picture>
-          </figure>
+        <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/key.svg" alt=""></p>
           <h3>Bring your own key</h3>
           <p>Optional. Add your own API key for full punctuation and grammar clean-up.</p>
         </article>
-        <article class="feature feature-with-screen">
-          <figure class="feature-screen">
-            <picture>
-              <source type="image/webp" srcset="/assets/screens/pill-idle@2x.webp">
-              <img src="/assets/screens/pill-idle@2x.png" width="560" height="200" alt="Talky menu bar pill idle state" loading="lazy" decoding="async">
-            </picture>
-          </figure>
+        <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/clean.svg" alt=""></p>
           <h3>No clutter</h3>
           <p>Just your words, pasted where your cursor is. No popups, no filler, no extra windows.</p>
         </article>
-      </div>
-
-      <p class="features-subhead">Meeting summary</p>
-      <figure class="screen-shot screen-shot-wide">
-        <picture>
-          <source type="image/webp" srcset="/assets/screens/scratchpad-summary@2x.webp">
-          <img src="/assets/screens/scratchpad-summary@2x.png" width="960" height="590" alt="Talky scratchpad with a local meeting summary" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <p class="features-subhead">Pill states</p>
-      <div class="pill-states-grid">
-        <figure class="pill-state">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/pill-recording-meeting@2x.webp">
-            <img src="/assets/screens/pill-recording-meeting@2x.png" width="560" height="200" alt="Talky pill recording a meeting" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-        <figure class="pill-state">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/pill-transcribing@2x.webp">
-            <img src="/assets/screens/pill-transcribing@2x.png" width="560" height="200" alt="Talky pill transcribing" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-        <figure class="pill-state">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/pill-copied@2x.webp">
-            <img src="/assets/screens/pill-copied@2x.png" width="560" height="200" alt="Talky pill after copy to clipboard" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-        <figure class="pill-state">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/pill-failed@2x.webp">
-            <img src="/assets/screens/pill-failed@2x.png" width="560" height="200" alt="Talky pill failed state" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-      </div>
-
-      <p class="features-subhead">Menu bar</p>
-      <div class="screen-duo">
-        <figure class="screen-shot">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/menu-bar-menu@2x.webp">
-            <img src="/assets/screens/menu-bar-menu@2x.png" width="560" height="420" alt="Talky menu bar menu" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-        <figure class="screen-shot">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/menu-status-states@2x.webp">
-            <img src="/assets/screens/menu-status-states@2x.png" width="560" height="420" alt="Talky menu bar status states" loading="lazy" decoding="async">
-          </picture>
-        </figure>
       </div>
     </section>
 
