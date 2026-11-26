@@ -942,24 +942,24 @@ footer {
 }
 
 .ftop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .sos {
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 100%;
+  width: 100%;
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 12px 18px 12px 12px;
   background: var(--card);
   overflow: hidden;
   transition: border-color 0.25s ease, background 0.25s ease;
+  isolation: isolate;
 }
 
 .sos:hover {
@@ -971,6 +971,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .sos .k {
@@ -1002,11 +1006,17 @@ footer {
   color: var(--accent);
 }
 
-.posters {
+.posters,
+.app-mark {
   position: relative;
   width: 76px;
   height: 68px;
   flex: none;
+  z-index: 0;
+}
+
+.posters {
+  overflow: hidden;
 }
 
 .posters img {
@@ -1022,11 +1032,11 @@ footer {
 }
 
 .posters img:nth-child(1) {
-  transform: translateY(12px) rotate(-8deg) translateX(-10px);
+  transform: translateY(12px) rotate(-8deg) translateX(-6px);
 }
 
 .posters img:nth-child(2) {
-  transform: translateY(12px) rotate(6deg) translateX(10px);
+  transform: translateY(12px) rotate(6deg) translateX(6px);
 }
 
 .posters img:nth-child(3) {
@@ -1034,29 +1044,31 @@ footer {
 }
 
 .sos:hover .posters img:nth-child(1) {
-  transform: translateY(0) rotate(-16deg) translate(-20px, 3px);
+  transform: translateY(0) rotate(-12deg) translate(-10px, 3px);
 }
 
 .sos:hover .posters img:nth-child(2) {
-  transform: translateY(0) rotate(14deg) translate(20px, 3px);
+  transform: translateY(0) rotate(10deg) translate(10px, 3px);
 }
 
 .sos:hover .posters img:nth-child(3) {
-  transform: translateY(-4px) scale(1.06);
+  transform: translateY(-4px) scale(1.04);
 }
 
-.notch-mark {
-  width: 76px;
-  height: 68px;
-  flex: none;
+.app-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.notch-mark img {
+.app-mark img {
   display: block;
   width: 68px;
   height: 68px;
   flex: none;
   border-radius: 14px;
+  object-fit: cover;
 }
 
 footer .fine {
@@ -1264,8 +1276,7 @@ footer .fine {
   }
 
   .ftop {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
   }
 
   footer .fine {
