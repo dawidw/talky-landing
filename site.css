@@ -1099,6 +1099,19 @@ footer {
   font-weight: 600;
 }
 
+.fine .made a .mark {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  margin: 0 0.3em 0 0.1em;
+  vertical-align: -0.17em;
+  color: currentColor;
+}
+
+.fine .made a .mark .brand-glyph {
+  fill: var(--bg);
+}
+
 .fine .made a:hover {
   color: var(--accent);
 }
