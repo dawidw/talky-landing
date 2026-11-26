@@ -13,6 +13,26 @@
   --panel: rgba(28, 28, 30, 0.9);
   --max: 1200px;
   --pad: clamp(20px, 4vw, 120px);
+  /* 4 pt spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --space-40: 160px;
+  --prose: 42.5rem; /* 680px */
+  --section-gap: clamp(72px, 12vw, 152px);
+  --stack-lg: clamp(56px, 6vw, 80px);
+  --stack-md: clamp(40px, 5vw, 64px);
+  --stack-sm: clamp(28px, 3vw, 40px);
 }
 
 * {
@@ -26,7 +46,7 @@ html {
   color: var(--fg);
   color-scheme: dark;
   scroll-behavior: smooth;
-  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -144,8 +164,8 @@ nav .nav-toggle {
 /* Hero */
 .hero {
   text-align: center;
-  padding-top: clamp(36px, 5vw, 72px);
-  padding-bottom: 8px;
+  padding-top: clamp(40px, 6vw, 80px);
+  padding-bottom: clamp(48px, 8vw, 88px);
 }
 
 .hero .tag {
@@ -159,7 +179,7 @@ nav .nav-toggle {
 }
 
 .hero h1 {
-  margin-top: 28px;
+  margin-top: var(--space-8);
   font-size: clamp(40px, 7.5vw, 92px);
   line-height: 1;
   font-weight: 700;
@@ -170,8 +190,9 @@ nav .nav-toggle {
 }
 
 .hero .lead {
-  margin-top: 22px;
-  max-width: 700px;
+  margin-top: var(--space-6);
+  max-width: var(--prose);
+  line-height: 1.6;
   margin-left: auto;
   margin-right: auto;
   font-size: clamp(17px, 2.2vw, 21px);
@@ -181,19 +202,19 @@ nav .nav-toggle {
 .hero .ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: var(--space-4);
   justify-content: center;
-  margin-top: 28px;
+  margin-top: var(--space-8);
 }
 
 .hero .fine {
-  margin-top: 16px;
+  margin-top: var(--space-5);
   font-size: 13px;
   color: var(--tertiary);
 }
 
 .demo-wrap {
-  margin-top: clamp(40px, 6vw, 64px);
+  margin-top: clamp(48px, 7vw, 80px);
 }
 
 .demo-desktop {
@@ -350,13 +371,15 @@ nav .nav-toggle {
 
 /* Sections */
 .section {
-  padding-top: clamp(72px, 10vw, 140px);
+  padding-top: var(--section-gap);
+  padding-bottom: var(--space-4);
 }
 
 .section-head {
   text-align: center;
-  max-width: 760px;
+  max-width: var(--prose);
   margin: 0 auto;
+  padding: 0 var(--space-2);
 }
 
 .section-head .eyebrow {
@@ -368,31 +391,35 @@ nav .nav-toggle {
 }
 
 .section-head h2 {
-  margin-top: 16px;
+  margin-top: var(--space-5);
   font-size: clamp(32px, 4.8vw, 52px);
-  line-height: 1.08;
+  line-height: 1.12;
   font-weight: 700;
   letter-spacing: -0.03em;
 }
 
 .section-head p {
-  margin-top: 16px;
+  margin-top: var(--space-5);
   font-size: clamp(17px, 2vw, 19px);
   color: var(--muted);
+  line-height: 1.6;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features-grid {
-  margin-top: 56px;
+  margin-top: var(--stack-lg);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: var(--space-6);
 }
 
 .feature {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--card);
-  padding: 28px;
+  padding: var(--space-8) var(--space-8) var(--space-10);
 }
 
 .feature .icon-tile {
@@ -410,30 +437,31 @@ nav .nav-toggle {
 }
 
 .feature h3 {
-  margin-top: 14px;
+  margin-top: var(--space-4);
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
 
 .feature p {
-  margin-top: 8px;
+  margin-top: var(--space-3);
   font-size: 15px;
   color: var(--muted);
+  line-height: 1.6;
 }
 
 .pricing-cards {
-  margin-top: 56px;
+  margin-top: var(--stack-lg);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: var(--space-8);
 }
 
 .price-card {
   border-radius: 22px;
   border: 1px solid var(--line);
   background: var(--card);
-  padding: 36px;
+  padding: var(--space-10);
 }
 
 .price-card.talky {
@@ -513,14 +541,15 @@ nav .nav-toggle {
 }
 
 .pricing-note {
-  margin-top: 24px;
+  margin-top: var(--space-8);
   text-align: center;
   font-size: 13px;
+  line-height: 1.55;
   color: var(--tertiary);
 }
 
 .compare-block {
-  margin-top: 56px;
+  margin-top: var(--stack-lg);
 }
 
 /* Mobile cards hidden by default; table is the desktop view */
@@ -530,7 +559,7 @@ nav .nav-toggle {
 
 .compare-scroll {
   display: block;
-  margin-top: 28px;
+  margin-top: var(--stack-sm);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
@@ -544,13 +573,13 @@ nav .nav-toggle {
   border-collapse: separate;
   border-spacing: 0;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
   table-layout: fixed;
 }
 
 .compare-table th,
 .compare-table td {
-  padding: 16px 18px;
+  padding: 20px 22px;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--line);
@@ -694,7 +723,7 @@ nav .nav-toggle {
 }
 
 .compare-cta {
-  margin-top: 32px;
+  margin-top: var(--space-12);
   text-align: center;
 }
 
@@ -706,14 +735,14 @@ nav .nav-toggle {
 }
 
 .compare-cta .btn-primary {
-  margin-top: 18px;
+  margin-top: var(--space-6);
 }
 
 .compare-card {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--card);
-  padding: 22px 20px;
+  padding: var(--space-8) var(--space-6);
 }
 
 .compare-card.talky {
@@ -731,11 +760,11 @@ nav .nav-toggle {
 }
 
 .compare-card dl {
-  margin-top: 14px;
+  margin-top: var(--space-5);
 }
 
 .compare-card dt {
-  margin-top: 12px;
+  margin-top: var(--space-4);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -748,9 +777,9 @@ nav .nav-toggle {
 }
 
 .compare-card dd {
-  margin-top: 4px;
+  margin-top: var(--space-2);
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.55;
   color: #c7c7cc;
 }
 
@@ -760,10 +789,13 @@ nav .nav-toggle {
 }
 
 .compare-footnote {
-  margin-top: 16px;
+  margin-top: var(--space-8);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--tertiary);
+  max-width: var(--prose);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .compare-footnote a {
@@ -780,8 +812,8 @@ nav .nav-toggle {
   .compare-cards {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 28px;
+    gap: var(--space-5);
+    margin-top: var(--stack-sm);
   }
 
   .compare-scroll {
@@ -790,17 +822,17 @@ nav .nav-toggle {
 }
 
 .steps {
-  margin-top: 48px;
+  margin-top: var(--stack-md);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: var(--space-6);
 }
 
 .step {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--card);
-  padding: 24px;
+  padding: var(--space-8) var(--space-6) var(--space-8);
   height: 100%;
 }
 
@@ -817,23 +849,24 @@ nav .nav-toggle {
 }
 
 .step h3 {
-  margin-top: 14px;
+  margin-top: var(--space-4);
   font-size: 18px;
   font-weight: 600;
 }
 
 .step p {
-  margin-top: 8px;
+  margin-top: var(--space-3);
   font-size: 14px;
   color: var(--muted);
+  line-height: 1.6;
 }
 
 .byok-note {
-  margin-top: 28px;
+  margin-top: var(--stack-sm);
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--card);
-  padding: 16px 22px;
+  padding: var(--space-5) var(--space-6);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -848,15 +881,16 @@ nav .nav-toggle {
 }
 
 .faq-grid {
-  margin-top: 48px;
+  margin-top: var(--stack-md);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0 80px;
+  column-gap: var(--space-20);
+  row-gap: 0;
 }
 
 .faq-item {
   border-top: 1px solid var(--line);
-  padding: 24px 0;
+  padding: var(--space-8) 0;
 }
 
 .faq-item h3 {
@@ -865,16 +899,17 @@ nav .nav-toggle {
 }
 
 .faq-item p {
-  margin-top: 10px;
+  margin-top: var(--space-3);
   font-size: 15px;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.6;
+  max-width: 36rem;
 }
 
 .closing {
   text-align: center;
-  padding-top: clamp(96px, 12vw, 160px);
-  padding-bottom: clamp(48px, 8vw, 80px);
+  padding-top: var(--section-gap);
+  padding-bottom: clamp(64px, 10vw, 96px);
 }
 
 .closing h2 {
@@ -885,17 +920,21 @@ nav .nav-toggle {
 }
 
 .closing p {
-  margin-top: 16px;
+  margin-top: var(--space-5);
   font-size: 21px;
   color: var(--muted);
+  line-height: 1.6;
+  max-width: var(--prose);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .closing .btn-primary {
-  margin-top: 28px;
+  margin-top: var(--space-8);
 }
 
 .closing .fine {
-  margin-top: 16px;
+  margin-top: var(--space-5);
   font-size: 13px;
   color: var(--tertiary);
 }
@@ -945,7 +984,7 @@ nav .nav-toggle {
 /* Footer (Pssst / Awake pattern) */
 footer {
   border-top: 1px solid var(--line);
-  padding: 64px 0 32px;
+  padding: var(--space-16) 0 var(--space-10);
   color: var(--muted);
   font-size: 13px;
 }
@@ -1198,6 +1237,13 @@ footer {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --section-gap: clamp(72px, 20vw, 96px);
+    --stack-lg: clamp(48px, 14vw, 72px);
+    --stack-md: clamp(40px, 12vw, 56px);
+    --stack-sm: clamp(32px, 10vw, 48px);
+  }
+
   nav .nav-toggle {
     display: inline-flex;
   }
