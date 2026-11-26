@@ -1135,9 +1135,12 @@ footer {
   flex: none;
 }
 
-.notch-mark svg {
-  width: 76px;
+.notch-mark img {
+  display: block;
+  width: 68px;
   height: 68px;
+  flex: none;
+  border-radius: 14px;
 }
 
 .fine {
