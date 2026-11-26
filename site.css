@@ -208,9 +208,15 @@ nav .nav-toggle {
 }
 
 .hero .fine {
-  margin-top: var(--space-5);
+  display: block;
+  margin: var(--space-4) auto 0;
+  padding-top: 0;
+  border-top: 0;
+  text-align: center;
+  max-width: var(--prose);
   font-size: 13px;
   color: var(--tertiary);
+  line-height: 1.5;
 }
 
 .demo-wrap {
@@ -910,9 +916,15 @@ nav .nav-toggle {
 }
 
 .closing .fine {
-  margin-top: var(--space-5);
+  display: block;
+  margin: var(--space-4) auto 0;
+  padding-top: 0;
+  border-top: 0;
+  text-align: center;
+  max-width: var(--prose);
   font-size: 13px;
   color: var(--tertiary);
+  line-height: 1.5;
 }
 
 /* Legal pages */
@@ -1083,7 +1095,7 @@ footer {
   border-radius: 14px;
 }
 
-.fine {
+footer .fine {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1292,7 +1304,7 @@ footer {
     align-items: flex-start;
   }
 
-  .fine {
+  footer .fine {
     flex-direction: column;
     align-items: flex-start;
   }
