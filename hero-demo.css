@@ -3,24 +3,41 @@
 .hero-mac-demo {
   position: relative;
   margin: 0 auto;
-  max-width: min(920px, 100%);
-  border-radius: 22px;
+  max-width: min(720px, 100%);
+  border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(154deg, #1d2b53 7%, #4b2a7a 46%, #0f7a78 79%);
   aspect-ratio: 4 / 3;
-  min-height: clamp(280px, 52vw, 420px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  min-height: clamp(260px, 68vw, 360px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .hero-mac-demo {
+    aspect-ratio: 16 / 9;
+    width: min(100%, 680px);
+    min-height: 0;
+    max-height: min(320px, calc(100svh - 24.5rem));
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 860px) {
+  .hero-mac-demo {
+    max-height: min(272px, calc(100svh - 22rem));
+    border-radius: 16px;
+  }
 }
 
 .hero-mac-menubar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 28px;
-  padding: 0 14px;
-  font-size: 12px;
+  height: 26px;
+  padding: 0 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #f5f5f7;
   background: rgba(0, 0, 0, 0.38);
@@ -35,38 +52,52 @@
 
 .hero-mac-desktop {
   position: relative;
-  height: calc(100% - 28px);
+  height: calc(100% - 26px);
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(16px, 4vw, 32px) clamp(12px, 3vw, 24px) 96px;
+  padding: clamp(10px, 2vw, 16px) clamp(12px, 3vw, 20px) 50px;
+}
+
+@media (min-width: 768px) {
+  .hero-mac-desktop {
+    padding-bottom: 46px;
+  }
 }
 
 .hero-doc-win {
-  width: min(92%, 420px);
-  border-radius: 12px;
+  width: min(88%, 380px);
+  border-radius: 10px;
   background: rgba(30, 30, 32, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   overflow: hidden;
 }
 
 .hero-doc-title {
-  padding: 10px 14px;
-  font-size: 12px;
+  padding: 8px 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #aeaeb2;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-doc-field {
-  min-height: 88px;
-  padding: 14px 16px 18px;
-  font-size: clamp(14px, 2.4vw, 16px);
-  line-height: 1.5;
+  min-height: 56px;
+  padding: 10px 12px 12px;
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.45;
   color: #e5e5ea;
   text-align: left;
+}
+
+@media (min-width: 768px) and (max-height: 860px) {
+  .hero-doc-field {
+    min-height: 48px;
+    padding: 8px 12px 10px;
+    font-size: 13px;
+  }
 }
 
 .hero-doc-text {
@@ -97,7 +128,7 @@
 .hero-pill-keys {
   position: absolute;
   left: 50%;
-  bottom: 72px;
+  bottom: 50px;
   transform: translateX(-50%);
   display: flex;
   gap: 6px;
@@ -109,19 +140,19 @@
 
 .hero-mac-demo.is-keys .hero-pill-keys {
   opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
+  transform: translateX(-50%) translateY(-3px);
 }
 
 .hero-key {
   display: inline-grid;
   place-items: center;
-  min-width: 32px;
-  height: 30px;
+  min-width: 30px;
+  height: 28px;
   padding: 0 8px;
   border-radius: 8px;
   background: #2c2c2e;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #e5e5ea;
   box-shadow: 0 2px 0 #0a0a0b;
@@ -138,7 +169,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 20px;
+  bottom: 10px;
   display: flex;
   justify-content: center;
   z-index: 3;
@@ -146,13 +177,13 @@
 }
 
 .hero-pill {
-  --pill-w: 68px;
+  --pill-w: 64px;
   width: var(--pill-w);
-  min-height: 40px;
+  min-height: 38px;
   border-radius: 999px;
   background: rgba(28, 28, 30, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(12px);
   overflow: hidden;
   will-change: width;
@@ -160,12 +191,12 @@
 }
 
 .hero-mac-demo.is-listening .hero-pill {
-  --pill-w: min(92vw, 300px);
+  --pill-w: min(88vw, 280px);
 }
 
 .hero-mac-demo.is-pasted .hero-pill,
 .hero-mac-demo.is-pasted-hold .hero-pill {
-  --pill-w: 132px;
+  --pill-w: 124px;
 }
 
 .hero-pill-body {
@@ -173,8 +204,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 14px;
+  min-height: 38px;
+  padding: 0 12px;
 }
 
 .hero-pill-face {
@@ -183,8 +214,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 0 12px;
+  gap: 7px;
+  padding: 0 10px;
   opacity: 0;
   transition: opacity 0.28s ease;
   white-space: nowrap;
@@ -195,7 +226,7 @@
 }
 
 .hero-pill-idle .hero-pill-glyph {
-  width: 28px;
+  width: 26px;
   height: auto;
   opacity: 0.95;
 }
@@ -218,13 +249,13 @@
 }
 
 .hero-pill-label {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #f5f5f7;
 }
 
 .hero-pill-timer {
-  font-size: 13px;
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
   color: #aeaeb2;
   min-width: 2.6em;
@@ -235,8 +266,8 @@
   display: flex;
   align-items: flex-end;
   gap: 3px;
-  height: 18px;
-  margin-left: 4px;
+  height: 16px;
+  margin-left: 3px;
 }
 
 .hero-pill-wave span {
@@ -266,14 +297,14 @@
 
 @media (max-width: 520px) {
   .hero-mac-desktop {
-    padding-bottom: 88px;
+    padding-bottom: 52px;
   }
 
   .hero-pill-keys {
-    bottom: 64px;
+    bottom: 46px;
   }
 
   .hero-pill-rail {
-    bottom: 14px;
+    bottom: 10px;
   }
 }
