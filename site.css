@@ -628,12 +628,13 @@ nav .nav-toggle {
   color: #a8a8ad;
 }
 
-.compare-table .mark-limit {
+/* mark-limit only on inner spans — never display:block on <td> */
+.compare-table span.mark-limit {
   display: block;
   color: #a8a8ad;
 }
 
-.compare-table .mark-limit::before {
+.compare-table span.mark-limit::before {
   content: "◦";
   display: inline-block;
   margin-right: 6px;
