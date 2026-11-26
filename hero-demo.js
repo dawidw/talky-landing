@@ -4,6 +4,7 @@
 
   const textEl = root.querySelector("[data-hero-text]");
   const timerEl = root.querySelector("[data-hero-timer]");
+  const waveSpans = root.querySelectorAll(".hero-pill-wave span");
   const faces = {
     idle: root.querySelector('[data-face="idle"]'),
     listening: root.querySelector('[data-face="listening"]'),
@@ -11,9 +12,14 @@
   };
 
   const samples = [
-    "I will send the fixes by tomorrow morning and let you know when they are ready.",
-    "Can you share the deck before standup? I will add my notes right after.",
+    "Hey, I'll push the fixes by tomorrow morning and let you know when they're ready.",
+    "Can you share the deck before standup? I'll add my notes right after.",
+    "Let's move the review to Thursday afternoon so we have time to polish the copy.",
   ];
+
+  const LISTEN_TICKS = ["0:01", "0:02", "0:03", "0:04", "0:05"];
+  const LISTEN_STEP_MS = 1000;
+  const WAVE_LEVELS = [4, 6, 8, 10, 12, 14, 16, 18];
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -28,6 +34,23 @@
     root.classList.remove("is-keys", "is-listening", "is-pasted", "is-pasted-hold", "is-typing");
   };
 
+  const bumpWave = () => {
+    waveSpans.forEach((el) => {
+      const h = WAVE_LEVELS[Math.floor(Math.random() * WAVE_LEVELS.length)];
+      el.style.setProperty("--h", `${h}px`);
+    });
+  };
+
+  const startWaveLoop = () => {
+    if (reduced || !waveSpans.length) return null;
+    bumpWave();
+    return window.setInterval(bumpWave, 130);
+  };
+
+  const stopWaveLoop = (id) => {
+    if (id != null) window.clearInterval(id);
+  };
+
   const typeText = async (text) => {
     if (!textEl) return;
     textEl.textContent = "";
@@ -40,12 +63,17 @@
     root.classList.remove("is-typing");
   };
 
-  const runTimers = async () => {
+  const runListening = async () => {
     if (!timerEl) return;
-    const ticks = ["0:01", "0:02", "0:03"];
-    for (const t of ticks) {
-      timerEl.textContent = t;
-      await wait(reduced ? 0 : 520);
+    const waveId = startWaveLoop();
+    try {
+      for (const t of LISTEN_TICKS) {
+        timerEl.textContent = t;
+        if (!reduced) bumpWave();
+        await wait(reduced ? 0 : LISTEN_STEP_MS);
+      }
+    } finally {
+      stopWaveLoop(waveId);
     }
   };
 
@@ -54,7 +82,8 @@
     setFace("pasted");
     root.classList.add("is-pasted");
     if (textEl) textEl.textContent = samples[0];
-    if (timerEl) timerEl.textContent = "0:02";
+    if (timerEl) timerEl.textContent = "0:05";
+    waveSpans.forEach((el) => el.style.setProperty("--h", "12px"));
   };
 
   const runLoop = async (lineIndex) => {
@@ -63,6 +92,7 @@
     setFace("idle");
     if (textEl) textEl.textContent = "";
     if (timerEl) timerEl.textContent = "0:00";
+    waveSpans.forEach((el) => el.style.setProperty("--h", "6px"));
 
     await wait(reduced ? 0 : 1400);
 
@@ -71,7 +101,7 @@
 
     root.classList.add("is-listening");
     setFace("listening");
-    await runTimers();
+    await runListening();
 
     root.classList.remove("is-keys");
     root.classList.remove("is-listening");
