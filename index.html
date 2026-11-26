@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=spacing2">
+  <link rel="stylesheet" href="/site.css?v=byok1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -268,6 +268,12 @@
                 <td><span class="cell-bool-yes">Yes</span></td>
               </tr>
               <tr>
+                <th scope="row" class="row-label">Meeting summaries</th>
+                <td class="col-talky"><span class="mark-good">✓ On your Mac (Apple on-device); optional API key for frontier models</span></td>
+                <td><span class="mark-limit">In the cloud</span></td>
+                <td><span class="mark-limit">In the cloud</span></td>
+              </tr>
+              <tr>
                 <th scope="row" class="row-label">Works offline</th>
                 <td class="col-talky"><span class="mark-good">✓ Yes</span></td>
                 <td><span class="cell-bool-limit">No</span></td>
@@ -296,6 +302,8 @@
               <dd class="mark-good-line">✓ Unlimited, on your Mac</dd>
               <dt>Where transcription runs</dt>
               <dd>On your Mac (Neural Engine); audio stays on the computer</dd>
+              <dt>Meeting summaries</dt>
+              <dd class="mark-good-line">✓ On your Mac; optional API key for frontier models</dd>
               <dt>Works offline</dt>
               <dd class="mark-good-line">✓ Yes</dd>
               <dt>Account required</dt>
@@ -315,6 +323,8 @@
               <dd>Limited on free; unlimited on Pro</dd>
               <dt>Where transcription runs</dt>
               <dd>In the cloud</dd>
+              <dt>Meeting summaries</dt>
+              <dd>In the cloud</dd>
               <dt>Works offline</dt>
               <dd>No</dd>
               <dt>Account required</dt>
@@ -333,6 +343,8 @@
               <dt>Notes and meeting history</dt>
               <dd>On free: 30 days of history</dd>
               <dt>Where transcription runs</dt>
+              <dd>In the cloud</dd>
+              <dt>Meeting summaries</dt>
               <dd>In the cloud</dd>
               <dt>Works offline</dt>
               <dd>No</dd>
@@ -354,7 +366,7 @@
       <div class="section-head">
         <p class="eyebrow">Bring your own key</p>
         <h2>Your own key in 2 minutes</h2>
-        <p>You may already use ChatGPT, Claude or Groq. The labs behind them offer the same models through an API. A key is your personal pass to that model: you pay only for what you use, usually cents a month, instead of another subscription.</p>
+        <p>Talky transcribes on your Mac and builds meeting summaries on your Mac with Apple's on-device model. If you want frontier models from OpenAI, Anthropic, or Groq, add your own API key for dictation clean-up and Summary.</p>
       </div>
       <div class="steps">
         <article class="step">
@@ -375,12 +387,12 @@
         <article class="step">
           <p class="num">4</p>
           <h3>You are done</h3>
-          <p>Dictation now gets full clean-up. Your key stays in the macOS Keychain on your Mac.</p>
+          <p>Dictation clean-up and Summary can use your provider. Your key stays in the macOS Keychain on your Mac.</p>
         </article>
       </div>
       <p class="byok-note">
         <img src="/assets/icons/check.svg" alt="">
-        Optional. Without a key Talky still works fully on your Mac. You can remove the key any time in Preferences.
+        Optional. Without a key, dictation and Summary run fully on your Mac. You can remove the key any time in Preferences.
       </p>
     </section>
 
