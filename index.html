@@ -20,6 +20,7 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/site.css?v=screens7">
+  <link rel="stylesheet" href="/hero-demo.css?v=1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,12 +71,46 @@
       <p class="fine">One-time purchase. No account. Works offline.</p>
 
       <div class="demo-wrap">
-        <figure class="hero-screen">
-          <picture>
-            <source type="image/webp" srcset="/assets/screens/panel-expanded@2x.webp?v=sharp3 1120w, /assets/screens/panel-expanded@3x.webp?v=sharp3 1680w" sizes="560px">
-            <img src="/assets/screens/panel-expanded@2x.png?v=sharp3" srcset="/assets/screens/panel-expanded@2x.png?v=sharp3 1120w, /assets/screens/panel-expanded@3x.png?v=sharp3 1680w" sizes="560px" width="560" height="420" alt="Talky expanded panel with Listen, Voice memo, Meeting, Scratchpad, and the hint bar" decoding="async" fetchpriority="high">
-          </picture>
-        </figure>
+        <div class="hero-mac-demo" data-hero-demo role="img" aria-label="Animated demo: hold Control and Shift to dictate, Talky pastes your words into a note">
+          <div class="hero-mac-menubar">
+            <span>Finder</span>
+            <span data-hero-clock>9:41</span>
+          </div>
+          <div class="hero-mac-desktop">
+            <div class="hero-doc-win">
+              <div class="hero-doc-title">Quick note</div>
+              <div class="hero-doc-field">
+                <span class="hero-doc-text" data-hero-text></span><span class="hero-doc-caret" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-pill-keys" aria-hidden="true">
+            <kbd class="hero-key">⌃</kbd>
+            <kbd class="hero-key">⇧</kbd>
+          </div>
+          <div class="hero-pill-rail">
+            <div class="hero-pill">
+              <div class="hero-pill-body">
+                <div class="hero-pill-face hero-pill-idle is-on" data-face="idle">
+                  <img class="hero-pill-glyph" src="/assets/talky-wave-glyph.svg" width="28" height="12" alt="">
+                </div>
+                <div class="hero-pill-face hero-pill-listen" data-face="listening">
+                  <span class="hero-pill-dot red" aria-hidden="true"></span>
+                  <span class="hero-pill-label">Listening</span>
+                  <span class="hero-pill-timer" data-hero-timer>0:00</span>
+                  <span class="hero-pill-wave" aria-hidden="true">
+                    <span style="--h:6px"></span><span style="--h:10px"></span><span style="--h:14px"></span><span style="--h:8px"></span>
+                    <span style="--h:12px"></span><span style="--h:16px"></span><span style="--h:9px"></span><span style="--h:13px"></span>
+                  </span>
+                </div>
+                <div class="hero-pill-face hero-pill-pasted" data-face="pasted">
+                  <span class="hero-pill-dot green" aria-hidden="true"></span>
+                  <span class="hero-pill-label">Pasted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -91,8 +126,19 @@
           <p>Hold Ctrl+Shift, speak, release. Your words land in whatever field is active.</p>
           <figure class="feature-screen">
             <picture>
-              <source type="image/webp" srcset="/assets/screens/pill-listening@2x.webp?v=sharp3 1120w, /assets/screens/pill-listening@3x.webp?v=sharp3 1680w" sizes="560px">
-              <img src="/assets/screens/pill-listening@2x.png?v=sharp3" srcset="/assets/screens/pill-listening@2x.png?v=sharp3 1120w, /assets/screens/pill-listening@3x.png?v=sharp3 1680w" sizes="560px" width="560" height="200" alt="Talky menu bar pill while listening for dictation" loading="lazy" decoding="async">
+              <source
+                type="image/webp"
+                srcset="/assets/screens/pill-listening@2x.webp?v=sharp3 1120w, /assets/screens/pill-listening@3x.webp?v=sharp3 1680w"
+                sizes="560px">
+              <img
+                src="/assets/screens/pill-listening@2x.png?v=sharp3"
+                srcset="/assets/screens/pill-listening@2x.png?v=sharp3 1120w, /assets/screens/pill-listening@3x.png?v=sharp3 1680w"
+                sizes="560px"
+                width="560"
+                height="200"
+                alt="Talky menu bar pill while listening for dictation"
+                loading="lazy"
+                decoding="async">
             </picture>
           </figure>
         </article>
@@ -443,5 +489,6 @@
     </div>
   </footer>
   <script src="/site.js" defer></script>
+  <script src="/hero-demo.js" defer></script>
 </body>
 </html>

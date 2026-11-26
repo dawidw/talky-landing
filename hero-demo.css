@@ -1,0 +1,295 @@
+/* Animated hero: Mac frame + Talky pill dictation loop */
+
+.hero-mac-demo {
+  position: relative;
+  margin: 0 auto;
+  max-width: min(920px, 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(154deg, #1d2b53 7%, #4b2a7a 46%, #0f7a78 79%);
+  aspect-ratio: 4 / 3;
+  min-height: clamp(280px, 52vw, 420px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  isolation: isolate;
+}
+
+.hero-mac-menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f5f5f7;
+  background: rgba(0, 0, 0, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-mac-menubar span:last-child {
+  font-weight: 500;
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-mac-desktop {
+  position: relative;
+  height: calc(100% - 28px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 32px) clamp(12px, 3vw, 24px) 96px;
+}
+
+.hero-doc-win {
+  width: min(92%, 420px);
+  border-radius: 12px;
+  background: rgba(30, 30, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.hero-doc-title {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #aeaeb2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-doc-field {
+  min-height: 88px;
+  padding: 14px 16px 18px;
+  font-size: clamp(14px, 2.4vw, 16px);
+  line-height: 1.5;
+  color: #e5e5ea;
+  text-align: left;
+}
+
+.hero-doc-text {
+  white-space: pre-wrap;
+}
+
+.hero-doc-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: hero-caret-blink 1s step-end infinite;
+}
+
+.hero-mac-demo.is-typing .hero-doc-caret {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes hero-caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-pill-keys {
+  position: absolute;
+  left: 50%;
+  bottom: 72px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.2, 0.5, 1);
+}
+
+.hero-mac-demo.is-keys .hero-pill-keys {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.hero-key {
+  display: inline-grid;
+  place-items: center;
+  min-width: 32px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #2c2c2e;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e5ea;
+  box-shadow: 0 2px 0 #0a0a0b;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.hero-mac-demo.is-keys .hero-key {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 #0a0a0b;
+  background: #1c1c1e;
+}
+
+.hero-pill-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-pill {
+  --pill-w: 68px;
+  width: var(--pill-w);
+  min-height: 40px;
+  border-radius: 999px;
+  background: rgba(28, 28, 30, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  will-change: width;
+  transition: width 0.35s cubic-bezier(0.34, 1.2, 0.5, 1);
+}
+
+.hero-mac-demo.is-listening .hero-pill {
+  --pill-w: min(92vw, 300px);
+}
+
+.hero-mac-demo.is-pasted .hero-pill,
+.hero-mac-demo.is-pasted-hold .hero-pill {
+  --pill-w: 132px;
+}
+
+.hero-pill-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.hero-pill-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  white-space: nowrap;
+}
+
+.hero-pill-face.is-on {
+  opacity: 1;
+}
+
+.hero-pill-idle .hero-pill-glyph {
+  width: 28px;
+  height: auto;
+  opacity: 0.95;
+}
+
+.hero-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.hero-pill-dot.red {
+  background: #ff453a;
+  box-shadow: 0 0 8px rgba(255, 69, 58, 0.55);
+}
+
+.hero-pill-dot.green {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.45);
+}
+
+.hero-pill-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5f5f7;
+}
+
+.hero-pill-timer {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: #aeaeb2;
+  min-width: 2.6em;
+  text-align: right;
+}
+
+.hero-pill-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.hero-pill-wave span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  height: var(--h, 6px);
+  transition: height 0.12s ease;
+}
+
+.hero-mac-demo.is-listening .hero-pill-wave span {
+  animation: hero-bar-dance 0.45s ease-in-out infinite alternate;
+}
+
+.hero-pill-wave span:nth-child(1) { animation-delay: 0ms; }
+.hero-pill-wave span:nth-child(2) { animation-delay: 40ms; }
+.hero-pill-wave span:nth-child(3) { animation-delay: 80ms; }
+.hero-pill-wave span:nth-child(4) { animation-delay: 20ms; }
+.hero-pill-wave span:nth-child(5) { animation-delay: 60ms; }
+.hero-pill-wave span:nth-child(6) { animation-delay: 100ms; }
+.hero-pill-wave span:nth-child(7) { animation-delay: 30ms; }
+.hero-pill-wave span:nth-child(8) { animation-delay: 70ms; }
+
+@keyframes hero-bar-dance {
+  from {
+    height: 4px;
+  }
+  to {
+    height: 16px;
+  }
+}
+
+.hero-mac-demo.is-reduced-motion .hero-pill,
+.hero-mac-demo.is-reduced-motion .hero-pill-keys,
+.hero-mac-demo.is-reduced-motion .hero-pill-face {
+  transition: none;
+  animation: none;
+}
+
+.hero-mac-demo.is-reduced-motion .hero-doc-caret {
+  animation: none;
+}
+
+@media (max-width: 520px) {
+  .hero-mac-desktop {
+    padding-bottom: 88px;
+  }
+
+  .hero-pill-keys {
+    bottom: 64px;
+  }
+
+  .hero-pill-rail {
+    bottom: 14px;
+  }
+}

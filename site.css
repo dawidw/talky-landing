@@ -235,6 +235,7 @@ nav .nav-toggle {
 
 .hero-screen {
   margin: 0 auto;
+  /* 1680px @3x ÷ 3 DPR = 560px CSS — bez skalowania w górę */
   max-width: min(560px, 100%);
   line-height: 0;
 }
@@ -259,6 +260,7 @@ nav .nav-toggle {
   margin: auto 0 0;
   padding-top: var(--space-6);
   line-height: 0;
+  /* 1680px @3x ÷ 3 DPR, or downscale on 2x — no upscale */
   max-width: min(560px, 100%);
 }
 
