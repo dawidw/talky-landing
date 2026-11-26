@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=rhythm1">
+  <link rel="stylesheet" href="/site.css?v=screens1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,54 +70,12 @@
       <p class="fine">One-time purchase. No account. Works offline.</p>
 
       <div class="demo-wrap">
-        <div class="demo-desktop" role="img" aria-label="Talky menu bar pill preview (placeholder UI mockup)">
-          <div class="demo-menubar">
-            <div class="left">
-              <span>Notes</span>
-              <span>File</span>
-              <span>Edit</span>
-              <span>View</span>
-            </div>
-            <span>Thu 9:41</span>
-          </div>
-          <div class="pill">
-            <div class="pill-head">
-              <img src="/assets/talky-wave-glyph.svg" width="22" height="15" alt="">
-              Talky
-              <span class="status">Ready</span>
-            </div>
-            <div class="pill-options">
-              <div class="pill-row active">
-                <p class="tile"><img src="/assets/icons/mic.svg" alt=""></p>
-                <div class="txt">
-                  <strong>Listen</strong>
-                  <span>Hold to dictate into any field</span>
-                </div>
-                <span class="kbd">⌃⇧</span>
-              </div>
-              <div class="pill-row">
-                <p class="tile"><img src="/assets/icons/scratchpad.svg" alt=""></p>
-                <div class="txt">
-                  <strong>Scratchpad</strong>
-                  <span>Notes and meetings, searchable</span>
-                </div>
-              </div>
-              <div class="pill-row">
-                <p class="tile"><img src="/assets/icons/users.svg" alt=""></p>
-                <div class="txt">
-                  <strong>Meeting</strong>
-                  <span>Record with speaker labels</span>
-                </div>
-              </div>
-            </div>
-            <div class="hint-bar">
-              <span class="hint-item"><span class="kbd">⌃⇧</span> hold to talk</span>
-              <span class="hint-item"><span class="kbd">↵</span> paste</span>
-              <span class="hint-item"><span class="kbd">⌥↵</span> copy only</span>
-              <span class="hint-item"><span class="kbd">esc</span> close</span>
-            </div>
-          </div>
-        </div>
+        <figure class="hero-screen">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/panel-expanded@2x.webp">
+            <img src="/assets/screens/panel-expanded@2x.png" width="560" height="420" alt="Talky expanded panel with Listen, Scratchpad, Meeting, and the hint bar: hold to talk, paste, copy only, and close" decoding="async" fetchpriority="high">
+          </picture>
+        </figure>
       </div>
     </section>
 
@@ -127,36 +85,124 @@
         <h2>Everything you need. Nothing around it.</h2>
       </div>
       <div class="features-grid">
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/pill-listening@2x.webp">
+              <img src="/assets/screens/pill-listening@2x.png" width="560" height="200" alt="Talky menu bar pill while listening for dictation" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/mic.svg" alt=""></p>
           <h3>Hold to talk</h3>
           <p>Hold Ctrl+Shift, speak, release. Your words land in whatever field is active.</p>
         </article>
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/scratchpad-notes@2x.webp">
+              <img src="/assets/screens/scratchpad-notes@2x.png" width="960" height="590" alt="Talky scratchpad with dictation notes" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/scratchpad.svg" alt=""></p>
           <h3>Scratchpad</h3>
           <p>Every dictation and meeting in one searchable place. Copy or paste with one key.</p>
         </article>
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/scratchpad-meeting@2x.webp">
+              <img src="/assets/screens/scratchpad-meeting@2x.png" width="960" height="590" alt="Talky scratchpad meeting transcript with speaker labels" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/users.svg" alt=""></p>
           <h3>Meeting notes with speakers</h3>
           <p>Record a call and get a transcript labeled Me, Speaker 1, Speaker 2.</p>
         </article>
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/onboarding-permissions@2x.webp">
+              <img src="/assets/screens/onboarding-permissions@2x.png" width="560" height="609" alt="Talky onboarding permissions on your Mac" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/shield.svg" alt=""></p>
           <h3>100% local</h3>
           <p>Speech is transcribed on your Mac with Parakeet. No account, no cloud, nothing to sign up for.</p>
         </article>
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/preferences@2x.webp">
+              <img src="/assets/screens/preferences@2x.png" width="720" height="887" alt="Talky preferences with optional API key" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/key.svg" alt=""></p>
           <h3>Bring your own key</h3>
           <p>Optional. Add your own API key for full punctuation and grammar clean-up.</p>
         </article>
-        <article class="feature">
+        <article class="feature feature-with-screen">
+          <figure class="feature-screen">
+            <picture>
+              <source type="image/webp" srcset="/assets/screens/pill-idle@2x.webp">
+              <img src="/assets/screens/pill-idle@2x.png" width="560" height="200" alt="Talky menu bar pill idle state" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="icon-tile"><img src="/assets/icons/clean.svg" alt=""></p>
           <h3>No clutter</h3>
           <p>Just your words, pasted where your cursor is. No popups, no filler, no extra windows.</p>
         </article>
+      </div>
+
+      <p class="features-subhead">Meeting summary</p>
+      <figure class="screen-shot screen-shot-wide">
+        <picture>
+          <source type="image/webp" srcset="/assets/screens/scratchpad-summary@2x.webp">
+          <img src="/assets/screens/scratchpad-summary@2x.png" width="960" height="590" alt="Talky scratchpad with a local meeting summary" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <p class="features-subhead">Pill states</p>
+      <div class="pill-states-grid">
+        <figure class="pill-state">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/pill-recording-meeting@2x.webp">
+            <img src="/assets/screens/pill-recording-meeting@2x.png" width="560" height="200" alt="Talky pill recording a meeting" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="pill-state">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/pill-transcribing@2x.webp">
+            <img src="/assets/screens/pill-transcribing@2x.png" width="560" height="200" alt="Talky pill transcribing" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="pill-state">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/pill-copied@2x.webp">
+            <img src="/assets/screens/pill-copied@2x.png" width="560" height="200" alt="Talky pill after copy to clipboard" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="pill-state">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/pill-failed@2x.webp">
+            <img src="/assets/screens/pill-failed@2x.png" width="560" height="200" alt="Talky pill failed state" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+
+      <p class="features-subhead">Menu bar</p>
+      <div class="screen-duo">
+        <figure class="screen-shot">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/menu-bar-menu@2x.webp">
+            <img src="/assets/screens/menu-bar-menu@2x.png" width="560" height="420" alt="Talky menu bar menu" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="screen-shot">
+          <picture>
+            <source type="image/webp" srcset="/assets/screens/menu-status-states@2x.webp">
+            <img src="/assets/screens/menu-status-states@2x.png" width="560" height="420" alt="Talky menu bar status states" loading="lazy" decoding="async">
+          </picture>
+        </figure>
       </div>
     </section>
 
