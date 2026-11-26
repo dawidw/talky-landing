@@ -177,7 +177,7 @@
 }
 
 .hero-pill {
-  --pill-w: 64px;
+  --pill-w: 52px;
   width: var(--pill-w);
   min-height: 38px;
   border-radius: 999px;
@@ -191,12 +191,12 @@
 }
 
 .hero-mac-demo.is-listening .hero-pill {
-  --pill-w: min(88vw, 280px);
+  --pill-w: min(88vw, 206px);
 }
 
 .hero-mac-demo.is-pasted .hero-pill,
 .hero-mac-demo.is-pasted-hold .hero-pill {
-  --pill-w: 124px;
+  --pill-w: 84px;
 }
 
 .hero-pill-body {
@@ -205,7 +205,7 @@
   align-items: center;
   justify-content: center;
   min-height: 38px;
-  padding: 0 12px;
+  padding: 0;
 }
 
 .hero-pill-face {
@@ -214,8 +214,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 0 10px;
+  gap: 6px;
+  padding: 0 13px;
   opacity: 0;
   transition: opacity 0.28s ease;
   white-space: nowrap;
