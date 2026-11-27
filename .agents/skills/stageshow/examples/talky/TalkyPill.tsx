@@ -55,7 +55,7 @@ export default function TalkyPill({ panelOpen, pill, timer }: Props) {
           <Text className="tk-pill-time">{timer}</Text>
           <span className={`tk-pill-wave${speaking ? '' : ' tk-pill-wave--silent'}`} aria-hidden="true">
             {bars.map((h, i) => (
-              <span key={i} style={{ ['--h' as string]: `${h}px` }} />
+              <span key={i} className="tk-pill-wave-bar" style={{ height: `${h}px` }} />
             ))}
           </span>
           <button type="button" className="tk-pill-stop" data-target="stop-meeting" data-cursor="hand" aria-label="Stop">
