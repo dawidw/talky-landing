@@ -6,7 +6,8 @@
     "build": "vite build",
     "dev": "vite",
     "sync-design": "node scripts/sync-figma-designs.mjs",
-    "verify-embed": "node scripts/verify-embed.mjs"
+    "verify-embed": "node scripts/verify-embed.mjs",
+    "capture-beats": "node scripts/capture-beats.mjs"
   },
   "dependencies": {
     "lucide-react": "0.468.0",

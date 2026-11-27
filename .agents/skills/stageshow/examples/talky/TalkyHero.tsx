@@ -107,26 +107,6 @@ export default function TalkyHero() {
       {(s, _rect, layout) => (
         <>
           <div className="tk-wallpaper" />
-          <div className="tk-menubar">
-            <span className="tk-menubar-left">
-              <Text className="tk-menubar-app">Finder</Text>
-              <Text className="tk-menubar-app">File</Text>
-              <Text className="tk-menubar-app">Edit</Text>
-              <Text className="tk-menubar-app">View</Text>
-            </span>
-            <span className="tk-menubar-right">
-              <Bar w={14} h={10} r={3} tone={3} />
-              <Bar w={14} h={10} r={3} tone={3} />
-              <Text className="tk-menubar-clock">Thu 9:41</Text>
-              <span className="tk-menubar-talky" aria-hidden="true">
-                <TalkyOrb sm />
-              </span>
-            </span>
-          </div>
-
-          <TalkyPill panelOpen={s.panel} pill={s.pill} timer={s.timer} />
-          <TalkyPanel open={s.panel} listenPick={s.listenPick} layout={layout} />
-
           <div className="tk-win" data-layout={layout}>
             <header className="tk-win-chrome">
               <span className="tk-lights" aria-hidden="true">
@@ -143,15 +123,19 @@ export default function TalkyHero() {
               {layout === 'wide' && (
                 <aside className="tk-side" data-crop>
                   <div className="tk-side-item tk-side-item--on">
-                    <Text className="tk-side-title">Product sync with design</Text>
-                    <Text className="tk-side-time">9:41</Text>
+                    <div className="tk-side-row">
+                      <Text className="tk-side-title">Product sync with design</Text>
+                      <Text className="tk-side-time">9:41</Text>
+                    </div>
                     <Text className="tk-side-snippet">Me: Let's start with the launch checklist.</Text>
                     <Text className="tk-side-meta">Meeting, 3 speakers, 42 min</Text>
                   </div>
                   {[['Roadmap thoughts', '9:12'], ['Reply to Anna', 'Yesterday']].map(([t, when]) => (
                     <div key={t} className="tk-side-item tk-side-item--faint">
-                      <Text className="tk-side-title">{t}</Text>
-                      <Text className="tk-side-time">{when}</Text>
+                      <div className="tk-side-row">
+                        <Text className="tk-side-title">{t}</Text>
+                        <Text className="tk-side-time">{when}</Text>
+                      </div>
                       <Bar w={108} h={6} tone={2} />
                     </div>
                   ))}
@@ -164,15 +148,17 @@ export default function TalkyHero() {
                     <Text className="tk-meet-title">Product sync with design</Text>
                     <Text className="tk-meet-meta">
                       {layout === 'compact'
-                        ? 'Today, 9:41 | Meeting | 42 min'
-                        : 'Today, 9:41 | Meeting | 42 min | Me, Speaker 1, Speaker 2'}
+                        ? 'Today, 9:41 · Meeting · 42 min'
+                        : 'Today, 9:41 · Meeting · 42 min · Me, Speaker 1, Speaker 2'}
                     </Text>
                   </div>
-                  <div className="tk-seg">
-                    <span data-on={s.tab === 'transcript' || undefined}>Transcript</span>
-                    <span data-on={s.tab === 'summary' || undefined}>Summary</span>
+                  <div className="tk-main-actions">
+                    <div className="tk-seg">
+                      <span data-on={s.tab === 'transcript' || undefined}>Transcript</span>
+                      <span data-on={s.tab === 'summary' || undefined}>Summary</span>
+                    </div>
+                    <Bar w={layout === 'compact' ? 72 : 92} h={22} r={11} tone={4} />
                   </div>
-                  <Bar w={layout === 'compact' ? 72 : 92} h={22} r={11} tone={4} />
                 </div>
 
                 <Collapse open={s.tab === 'transcript'}>
@@ -217,6 +203,30 @@ export default function TalkyHero() {
               </main>
             </div>
           </div>
+
+          <div className="tk-menubar">
+            <span className="tk-menubar-left">
+              <Text className="tk-menubar-app">Finder</Text>
+              <Text className="tk-menubar-app">File</Text>
+              <Text className="tk-menubar-app">Edit</Text>
+              <Text className="tk-menubar-app">View</Text>
+            </span>
+            <span className="tk-menubar-right">
+              <Bar w={14} h={10} r={3} tone={3} />
+              <Bar w={14} h={10} r={3} tone={3} />
+              <Text className="tk-menubar-clock">Thu 9:41</Text>
+              <span className="tk-menubar-talky" aria-hidden="true">
+                <TalkyOrb sm />
+              </span>
+            </span>
+          </div>
+
+          <Collapse open={s.panel}>
+            <div className="tk-panel-scrim" aria-hidden="true" />
+          </Collapse>
+
+          <TalkyPill panelOpen={s.panel} pill={s.pill} timer={s.timer} />
+          <TalkyPanel open={s.panel} listenPick={s.listenPick} layout={layout} />
 
           <span data-target="rest" style={{ position: 'absolute', ...REST[layout] }} />
         </>
