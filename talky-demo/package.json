@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "sync-design": "node scripts/sync-figma-designs.mjs"
   },
   "dependencies": {
     "lucide-react": "0.468.0",

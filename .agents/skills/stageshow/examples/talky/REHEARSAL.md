@@ -2,7 +2,7 @@
 
 Gold copied: `hero-demo` (cursor beats, corner bleed) and `raycast` (macOS menubar, dark stage).
 
-Changed: Talky scratchpad, menu bar icon, meeting record menu, live transcript with Me / Speaker 2, summary block, pill states, save toast.
+Changed: floating pill → panel → Listen beats; Scratchpad transcript/summary. Pill/panel visuals **PROVISIONAL** until `/cursor/stores/bot/talky-designs/`.
 
 Poster: summary and toast on screen after the meeting loop.
 
