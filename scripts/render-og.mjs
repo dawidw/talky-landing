@@ -18,7 +18,7 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
     width:1200px;height:630px;
     font-family:Inter,system-ui,sans-serif;color:#f5f5f7;
     display:flex;align-items:center;padding:0 88px 0 80px;gap:64px;
-    background:#0b0b0d;
+    background:#000;
   }
   .icon{flex:none;width:232px;height:232px;filter:drop-shadow(0 14px 36px rgba(0,0,0,0.45))}
   .copy{min-width:0;flex:1}
