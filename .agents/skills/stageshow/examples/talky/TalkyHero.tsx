@@ -1,14 +1,15 @@
 import { Bar, Collapse, Kbd, Stage, Text, type Act } from '../../kit'
 import './talky.css'
 
-// Talky: menu bar, Start meeting, Scratchpad transcript with speakers, summary saved locally.
-// Labels and layout match the landing UI screens (menu bar menu, scratchpad meeting/summary).
+// Talky panel (panel-expanded), Scratchpad meeting transcript, summary saved locally.
+// Loop opens on the panel already visible; the cursor selects Listen, then the meeting flow runs.
 
 type Tab = 'transcript' | 'summary'
 type Pill = 'idle' | 'meeting' | 'transcribing'
 
 type S = {
-  menu: boolean
+  panel: boolean
+  listenPick: boolean
   meeting: boolean
   lines: number
   tab: Tab
@@ -18,7 +19,8 @@ type S = {
 }
 
 const initial: S = {
-  menu: false,
+  panel: true,
+  listenPick: true,
   meeting: false,
   lines: 0,
   tab: 'transcript',
@@ -27,10 +29,11 @@ const initial: S = {
   timer: '0:00',
 }
 
-const REST = { wide: { x: 640, y: 120 }, compact: { x: 300, y: 104 } }
+const REST = { wide: { x: 392, y: 248 }, compact: { x: 196, y: 230 } }
 
 const POSTER: S = {
-  menu: false,
+  panel: false,
+  listenPick: false,
   meeting: false,
   lines: 3,
   tab: 'summary',
@@ -45,16 +48,29 @@ const TRANSCRIPT = [
   { who: 'Me', color: 'me', at: '00:48', text: 'Great. Then we ship the beta on Friday.' },
 ]
 
+type PanelRow = {
+  id: string
+  title: string
+  sub: string
+  icon: 'mic' | 'wave' | 'people' | 'doc'
+  target?: string
+  keys?: readonly [string, string]
+  sep?: boolean
+}
+
+const PANEL_ROWS: PanelRow[] = [
+  { id: 'listen', title: 'Listen', sub: 'Dictate into the active field', icon: 'mic', target: 'listen-row', keys: ['⌃', '⇧'] },
+  { id: 'memo', title: 'Voice memo', sub: 'Record a note to Scratchpad', icon: 'wave' },
+  { id: 'meeting', title: 'Meeting', sub: 'Record with speaker labels', icon: 'people' },
+  { id: 'scratch', title: 'Scratchpad', sub: 'Notes and meetings, searchable', icon: 'doc', sep: true },
+]
+
 async function script(a: Act<S>) {
-  await a.wait(600)
-  await a.move('talky-icon')
-  await a.wait(200)
-  await a.click()
-  await a.set({ menu: true })
-  await a.wait(350)
-  await a.move('start-meeting')
-  await a.click()
-  await a.set({ menu: false, meeting: true, pill: 'meeting', timer: '0:03' })
+  await a.wait(800)
+  await a.move('listen-row')
+  await a.wait(280)
+  await a.click('listen-row')
+  await a.set({ panel: false, listenPick: false, meeting: true, pill: 'meeting', timer: '0:03' })
   await a.wait(500)
   const ticks = ['0:08', '0:14', '0:21', '0:28']
   for (const t of ticks) {
@@ -81,9 +97,9 @@ async function script(a: Act<S>) {
   await a.wait(450)
 }
 
-function Orb({ className }: { className?: string }) {
+function Orb({ className, sm }: { className?: string; sm?: boolean }) {
   return (
-    <span className={`tk-orb ${className ?? ''}`.trim()} aria-hidden="true">
+    <span className={`tk-orb${sm ? ' tk-orb--sm' : ''}${className ? ` ${className}` : ''}`.trim()} aria-hidden="true">
       <span className="tk-orb-core" />
     </span>
   )
@@ -119,8 +135,8 @@ export default function TalkyHero() {
               <Bar w={14} h={10} r={3} tone={3} />
               <Bar w={14} h={10} r={3} tone={3} />
               <Text className="tk-menubar-clock">Thu 9:41</Text>
-              <span className="tk-menubar-talky" data-target="talky-icon" data-cursor="hand" data-open={s.menu || undefined}>
-                <Orb />
+              <span className="tk-menubar-talky" data-cursor="hand" data-open={s.panel || undefined}>
+                <Orb sm />
               </span>
             </span>
           </div>
@@ -148,6 +164,56 @@ export default function TalkyHero() {
               </span>
             </div>
           </Collapse>
+
+          <div className="tk-panel" data-show={s.panel || undefined} data-target="talky-panel">
+            <header className="tk-panel-head">
+              <span className="tk-panel-brand">
+                <Orb sm />
+                <Text className="tk-panel-name">Talky</Text>
+              </span>
+              <Text className="tk-panel-ready">Ready</Text>
+            </header>
+            <div className="tk-panel-rows">
+              {PANEL_ROWS.map((row) => {
+                const inner = (
+                  <>
+                    <span className={`tk-panel-icon tk-panel-icon--${row.icon}`} aria-hidden="true" />
+                    <span className="tk-panel-copy">
+                      <Text className="tk-panel-title">{row.title}</Text>
+                      <Text className="tk-panel-sub">{row.sub}</Text>
+                    </span>
+                    {row.keys && (
+                      <span className="tk-panel-keys">
+                        <Kbd keys={[...row.keys]} plain />
+                      </span>
+                    )}
+                  </>
+                )
+                if (row.target) {
+                  return (
+                    <button
+                      key={row.id}
+                      type="button"
+                      className="tk-panel-row"
+                      data-target={row.target}
+                      data-cursor="hand"
+                      data-pick={s.listenPick || undefined}
+                    >
+                      {inner}
+                    </button>
+                  )
+                }
+                return (
+                  <div key={row.id} className={`tk-panel-row tk-panel-row--static${row.sep ? ' tk-panel-row--sep' : ''}`}>
+                    {inner}
+                  </div>
+                )
+              })}
+            </div>
+            <footer className="tk-panel-foot" data-crop>
+              <Bar w={layout === 'compact' ? 200 : 240} h={6} tone={2} />
+            </footer>
+          </div>
 
           <div className="tk-win" data-layout={layout}>
             <header className="tk-win-chrome">
@@ -237,34 +303,6 @@ export default function TalkyHero() {
                   </p>
                 </Collapse>
               </main>
-            </div>
-          </div>
-
-          <div className="tk-menu" data-show={s.menu || undefined}>
-            <div className="tk-menu-panel" data-target="talky-menu">
-              <div className="tk-menu-status">
-                <span className="tk-status-dot" />
-                <Text>Ready to listen</Text>
-              </div>
-              <div className="tk-menu-row tk-menu-row--faint">
-                <Text>Start listening</Text>
-                <span className="tk-menu-keys">
-                  <Kbd keys={['⌃', '⇧']} />
-                </span>
-              </div>
-              <button type="button" className="tk-menu-row" data-target="start-meeting" data-cursor="hand">
-                <Text>Start meeting</Text>
-              </button>
-              <div className="tk-menu-row tk-menu-row--faint">
-                <Bar w={layout === 'compact' ? 92 : 104} h={7} tone={3} />
-              </div>
-              <div className="tk-menu-row tk-menu-row--faint">
-                <Bar w={88} h={7} tone={3} />
-              </div>
-              <div className="tk-menu-divider" />
-              <div className="tk-menu-row tk-menu-row--faint">
-                <Bar w={72} h={7} tone={3} />
-              </div>
             </div>
           </div>
 
