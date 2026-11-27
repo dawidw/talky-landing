@@ -1,5 +1,6 @@
 import { Bar, Collapse, Stage, Text, type Act } from '../../kit'
 import TalkyGlyph from './TalkyGlyph'
+import TalkyWhiteOrb from './TalkyWhiteOrb'
 import TalkyPanel from './TalkyPanel'
 import TalkyPill, { type PillMode } from './TalkyPill'
 import './talky.css'
@@ -228,7 +229,7 @@ export default function TalkyHero() {
             <span className="tk-menubar-right">
               <Text className="tk-menubar-clock">Thu 9:41</Text>
               <span className="tk-menubar-talky" aria-hidden="true">
-                <TalkyGlyph idle />
+                <TalkyWhiteOrb size={16} variant="flat" className="tk-menubar-orb" />
               </span>
             </span>
           </div>

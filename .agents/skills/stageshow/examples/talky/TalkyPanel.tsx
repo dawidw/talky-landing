@@ -1,5 +1,5 @@
 import { Kbd, Text } from '../../kit'
-import TalkyGlyph from './TalkyGlyph'
+import TalkyWhiteOrb from './TalkyWhiteOrb'
 import TalkyPanelIcon, { type PanelIconKind } from './TalkyPanelIcon'
 
 export type PanelRow = {
@@ -90,7 +90,7 @@ export default function TalkyPanel({ open, listenPick, layout }: Props) {
     <div className="tk-panel" data-show={open || undefined} data-target="talky-panel">
       <header className="tk-panel-head">
         <span className="tk-panel-brand">
-          <TalkyGlyph />
+          <TalkyWhiteOrb size={15} variant="flat" className="tk-panel-orb" />
           <Text className="tk-panel-name">Talky</Text>
         </span>
         <Text className="tk-panel-ready">Ready</Text>
