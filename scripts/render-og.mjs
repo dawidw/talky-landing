@@ -23,7 +23,7 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
   <div>
     <h1>Talky</h1>
     <p class="tagline">Talk. It types and summarizes.</p>
-    <p class="sub">Everything runs locally on your Mac. We don't even have servers.</p>
+    <p class="sub">Everything's local, no audio goes to Talky servers. We don't even have servers.</p>
   </div>
 </body></html>`
 
