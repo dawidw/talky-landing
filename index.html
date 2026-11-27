@@ -22,7 +22,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=hero-local">
+  <link rel="stylesheet" href="/site.css?v=herofix2">
   <link rel="stylesheet" href="/assets/talky-demo/talky-demo.css?v=10">
   <script type="application/ld+json">
   {
@@ -190,8 +190,7 @@
       </div>
     </section>
 
-
-<section class="section wrap" id="models">
+    <section class="section wrap" id="models">
       <div class="section-head">
         <p class="eyebrow">Transcription models</p>
         <h2>Small default, bigger options in Settings</h2>
@@ -199,38 +198,44 @@
       </div>
       <div class="models-grid">
         <article class="model-card model-card-default">
-          <p class="model-badge">Default</p>
+          <div class="model-card-badge"><p class="model-badge">Default</p></div>
           <h3>NVIDIA Parakeet TDT v3</h3>
           <p>Talky ships with Parakeet TDT v3 because it is compact and quick on Apple silicon. It covers 25 European languages plus Auto in the language picker.</p>
         </article>
         <article class="model-card">
+          <div class="model-card-badge" aria-hidden="true"></div>
           <h3>Whisper large-v3 turbo</h3>
           <p>Download optional in Settings. Runs through WhisperKit when you want a larger Whisper model without the full size of large-v3.</p>
         </article>
         <article class="model-card">
+          <div class="model-card-badge" aria-hidden="true"></div>
           <h3>Whisper large-v3</h3>
           <p>Also optional in Settings. The most accurate Whisper option in Talky. Slower and heavier on disk and memory than turbo or Parakeet.</p>
         </article>
       </div>
       <p class="models-note">Download, switch, or remove speech models in Settings. Dictation still works offline after the model you chose is on your Mac.</p>
-      <div class="section-head section-head-tight">
-        <h2 class="h3-sized">Local summary models</h2>
-        <p>Separate from speech models. Pick what writes Summary, Action items, and Decisions in Scratchpad. All run on your Mac unless you choose API with your own key.</p>
-      </div>
-      <div class="models-grid">
-        <article class="model-card">
-          <h3>Apple Intelligence</h3>
-          <p>Built in when available on macOS 26. No download. Private on-device summaries.</p>
-        </article>
-        <article class="model-card model-card-default">
-          <p class="model-badge">Downloadable</p>
-          <h3>MLX on your Mac</h3>
-          <p>Choose from Gemma 3 and Qwen 3 instruct models in Settings. Grouped by European languages and English. Download, switch, or remove like speech models.</p>
-        </article>
-        <article class="model-card">
-          <h3>API (optional)</h3>
-          <p>When you add an API key and set the meeting summary engine to API, Talky sends transcript text only to your provider.</p>
-        </article>
+      <div class="models-subsection">
+        <div class="section-head">
+          <h2>Local summary models</h2>
+          <p>Separate from speech models. Pick what writes Summary, Action items, and Decisions in Scratchpad. All run on your Mac unless you choose API with your own key.</p>
+        </div>
+        <div class="models-grid">
+          <article class="model-card">
+            <div class="model-card-badge" aria-hidden="true"></div>
+            <h3>Apple Intelligence</h3>
+            <p>Built in when available on macOS 26. No download. Private on-device summaries.</p>
+          </article>
+          <article class="model-card model-card-default">
+            <div class="model-card-badge"><p class="model-badge">Downloadable</p></div>
+            <h3>MLX on your Mac</h3>
+            <p>Choose from Gemma 3 and Qwen 3 instruct models in Settings. Grouped by European languages and English. Download, switch, or remove like speech models.</p>
+          </article>
+          <article class="model-card">
+            <div class="model-card-badge" aria-hidden="true"></div>
+            <h3>API (optional)</h3>
+            <p>When you add an API key and set the meeting summary engine to API, Talky sends transcript text only to your provider.</p>
+          </article>
+        </div>
       </div>
     </section>
 
