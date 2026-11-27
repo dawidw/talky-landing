@@ -530,6 +530,13 @@ nav .nav-toggle {
   max-width: min(560px, 100%);
 }
 
+.kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+
 .kbd {
   display: inline-flex;
   align-items: center;

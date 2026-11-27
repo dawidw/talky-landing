@@ -22,8 +22,8 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
   <img class="icon" src="${iconData}" width="240" height="240" alt="">
   <div>
     <h1>Talky</h1>
-    <p class="tagline">Talk. It types. Pay once.</p>
-    <p class="sub">Local dictation and meeting notes for Mac</p>
+    <p class="tagline">Talk. It types and summarizes.</p>
+    <p class="sub">Dictation, memos, and meetings on your Mac. We don't even have servers.</p>
   </div>
 </body></html>`
 
