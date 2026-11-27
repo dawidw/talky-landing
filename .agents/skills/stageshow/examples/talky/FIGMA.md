@@ -18,8 +18,9 @@ Do czasu dopasowania 1:1 UI w `TalkyHero` / `talky.css` jest **prowizoryczne** i
 1. `node talky-demo/scripts/sync-figma-designs.mjs`
 2. Zaktualizuj `talky-tokens.css` z README w store.
 3. Dopasuj `TalkyPill` / `TalkyPanel` (wymiary, tła, orb SVG/PNG).
-4. `npm run build` w `talky-demo`, podbij `?v=` w `index.html`, `film.mjs` + `capture-loop.mjs`.
-5. **Jeden commit** wyglądu dopiero po wizualnym QA względem PNG.
+4. `npm run build` w `talky-demo`, podbij `?v=` w `index.html`.
+5. Sprawdź embed produkcyjny: `node talky-demo/scripts/verify-embed.mjs` (stageshow gra, bez mp4/stilli).
+6. **Commit + push na `main`** dopiero po QA względem PNG (Dawid nie potrzebuje nagrań mp4 ani stilli z `film.mjs`).
 
 ## Odtwarzanie na Pages
 
