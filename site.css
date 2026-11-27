@@ -347,6 +347,64 @@ nav .nav-toggle {
   margin-top: var(--space-3);
 }
 
+.models-grid {
+  margin-top: var(--stack-md);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  text-align: left;
+}
+
+.model-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  padding: var(--space-8);
+}
+
+.model-card-default {
+  border-color: var(--accent-border);
+  background: rgba(48, 209, 88, 0.05);
+}
+
+.model-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  margin-bottom: var(--space-3);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+}
+
+.model-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.model-card p {
+  margin-top: var(--space-3);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.models-note {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--tertiary);
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #compare .compare-cta {
   margin-top: var(--stack-md);
   text-align: center;
@@ -1492,7 +1550,8 @@ footer .fine {
   .steps,
   .steps-how,
   .small-things,
-  .privacy-grid {
+  .privacy-grid,
+  .models-grid {
     grid-template-columns: 1fr;
   }
 
