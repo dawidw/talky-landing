@@ -1,96 +1,104 @@
-import { Circle, Square } from 'lucide-react'
-import { Bar, Collapse, Stage, Text, Toast, type Act } from '../../kit'
+import { Bar, Collapse, Kbd, Stage, Text, type Act } from '../../kit'
 import './talky.css'
 
-// Talky meeting capture: menu bar, live transcript with speakers, summary saved locally.
-// Story: open Talky menu, record meeting, transcript grows, summary appears, save toast.
+// Talky: menu bar, Start meeting, Scratchpad transcript with speakers, summary saved locally.
+// Labels and layout match the landing UI screens (menu bar menu, scratchpad meeting/summary).
 
-type Pill = 'idle' | 'recording' | 'transcribing'
+type Tab = 'transcript' | 'summary'
+type Pill = 'idle' | 'meeting' | 'transcribing'
 
 type S = {
   menu: boolean
-  recording: boolean
+  meeting: boolean
   lines: number
-  summary: boolean
-  toast: boolean
+  tab: Tab
+  saved: boolean
   pill: Pill
-  timer: number
+  timer: string
 }
 
 const initial: S = {
   menu: false,
-  recording: false,
+  meeting: false,
   lines: 0,
-  summary: false,
-  toast: false,
+  tab: 'transcript',
+  saved: false,
   pill: 'idle',
-  timer: 0,
+  timer: '0:00',
 }
 
-const REST = { wide: { x: 620, y: 298 }, compact: { x: 296, y: 292 } }
+const REST = { wide: { x: 640, y: 120 }, compact: { x: 300, y: 104 } }
 
 const POSTER: S = {
   menu: false,
-  recording: false,
+  meeting: false,
   lines: 3,
-  summary: true,
-  toast: true,
+  tab: 'summary',
+  saved: true,
   pill: 'idle',
-  timer: 42,
+  timer: '12:41',
 }
 
 const TRANSCRIPT = [
-  { who: 'Me', text: "Let's ship the beta on Friday." },
-  { who: 'Speaker 2', text: 'I will sync the roadmap after standup.' },
-  { who: 'Me', text: 'Capture decisions in Talky for the team.' },
+  { who: 'Me', color: 'me', at: '00:12', text: "Let's start with the launch checklist. Where are we on onboarding?" },
+  { who: 'Speaker 1', color: 's1', at: '00:21', text: 'The permissions flow is done. We still need to test Accessibility on a fresh install.' },
+  { who: 'Me', color: 'me', at: '00:48', text: 'Great. Then we ship the beta on Friday.' },
 ]
 
 async function script(a: Act<S>) {
-  await a.wait(650)
+  await a.wait(600)
   await a.move('talky-icon')
-  await a.wait(220)
+  await a.wait(200)
   await a.click()
   await a.set({ menu: true })
-  await a.wait(380)
-  await a.move('record-meeting')
+  await a.wait(350)
+  await a.move('start-meeting')
   await a.click()
-  await a.set({ menu: false, recording: true, pill: 'recording', timer: 0 })
-  await a.wait(450)
-  for (let t = 1; t <= 4; t++) {
-    a.put({ timer: t * 7 })
-    await a.wait(400)
+  await a.set({ menu: false, meeting: true, pill: 'meeting', timer: '0:03' })
+  await a.wait(500)
+  const ticks = ['0:08', '0:14', '0:21', '0:28']
+  for (const t of ticks) {
+    a.put({ timer: t })
+    await a.wait(380)
   }
   for (let i = 1; i <= 3; i++) {
     a.put({ lines: i })
-    await a.wait(i === 1 ? 850 : 720)
+    await a.wait(i === 1 ? 780 : 680)
   }
-  await a.wait(500)
-  await a.move('talky-icon')
+  await a.wait(450)
+  await a.move('stop-meeting')
   await a.click()
-  await a.set({ menu: false, recording: false, pill: 'transcribing' })
-  await a.wait(900)
-  await a.set({ pill: 'idle', summary: true })
+  await a.set({ meeting: false, pill: 'transcribing' })
+  await a.wait(850)
+  await a.set({ pill: 'idle', tab: 'summary' })
   a.mark('summary')
-  await a.wait(650)
-  await a.set({ toast: true })
+  await a.wait(550)
+  await a.set({ saved: true })
   a.mark('payoff')
-  await a.wait(2400)
+  await a.wait(2200)
   await a.set({ ...initial })
   await a.move('rest')
-  await a.wait(500)
+  await a.wait(450)
+}
+
+function Orb({ className }: { className?: string }) {
+  return (
+    <span className={`tk-orb ${className ?? ''}`.trim()} aria-hidden="true">
+      <span className="tk-orb-core" />
+    </span>
+  )
 }
 
 export default function TalkyHero() {
   return (
     <Stage<S>
       width={720}
-      height={340}
-      compact={{ below: 560, width: 358, height: 320 }}
+      height={400}
+      compact={{ below: 560, width: 358, height: 360 }}
       theme="dark"
       greys="cool"
-      accent="#30d158"
+      accent="#0a84ff"
       fidelity="standard"
-      fill
       initial={initial}
       poster={POSTER}
       script={script}
@@ -99,107 +107,166 @@ export default function TalkyHero() {
     >
       {(s, _rect, layout) => (
         <>
-          <div className="tk-scene" data-layout={layout}>
-            <div className="tk-menubar">
-              <span className="tk-menubar-left">
-                <span className="tk-apple" aria-hidden="true" />
-                <Text className="tk-menu-item">Finder</Text>
-                <Text className="tk-menu-item">File</Text>
-                <Bar w={36} h={6} tone={3} />
+          <div className="tk-wallpaper" />
+          <div className="tk-menubar">
+            <span className="tk-menubar-left">
+              <Text className="tk-menubar-app">Finder</Text>
+              <Text className="tk-menubar-app">File</Text>
+              <Text className="tk-menubar-app">Edit</Text>
+              <Text className="tk-menubar-app">View</Text>
+            </span>
+            <span className="tk-menubar-right">
+              <Bar w={14} h={10} r={3} tone={3} />
+              <Bar w={14} h={10} r={3} tone={3} />
+              <Text className="tk-menubar-clock">Thu 9:41</Text>
+              <span className="tk-menubar-talky" data-target="talky-icon" data-cursor="hand" data-open={s.menu || undefined}>
+                <Orb />
               </span>
-              <span className="tk-menubar-right">
-                <Bar w={12} h={10} r={3} tone={3} />
-                <Bar w={12} h={10} r={3} tone={3} />
-                <Bar w={44} h={6} tone={4} />
-                <span className="tk-menubar-talky" data-target="talky-icon" data-cursor="hand" data-open={s.menu || undefined}>
-                  <img src="/assets/talky-icon.svg" width={15} height={15} alt="" />
+            </span>
+          </div>
+
+          <Collapse open={s.pill !== 'idle'}>
+            <div className="tk-meeting-pill" data-pill={s.pill}>
+              <span className="tk-pill-face" data-on={s.pill === 'meeting' || undefined}>
+                <span className="tk-rec-dot" aria-hidden="true" />
+                <Text className="tk-pill-label">Meeting</Text>
+                <Text className="tk-pill-time">{s.timer}</Text>
+                <span className="tk-pill-wave" aria-hidden="true">
+                  {[5, 9, 12, 8, 11, 7].map((h, i) => (
+                    <span key={i} style={{ ['--h' as string]: `${h}px` }} />
+                  ))}
                 </span>
-              </span>
-            </div>
-
-            <div className="tk-scratchpad" data-target="scratchpad">
-              <header className="tk-scratch-head">
-                <Text className="tk-scratch-title">Product sync</Text>
-                <span className="tk-scratch-meta">
-                  <Collapse open={s.recording}>
-                    <Text className="tk-live">Live transcript</Text>
-                  </Collapse>
-                  <Collapse open={s.summary && !s.recording}>
-                    <Text className="tk-live tk-live--done">Summary ready</Text>
-                  </Collapse>
-                  {!s.recording && !s.summary && <Bar w={72} h={6} tone={3} />}
-                </span>
-              </header>
-
-              <div className="tk-transcript">
-                {TRANSCRIPT.map((row, i) => (
-                  <Collapse key={row.who + i} open={s.lines > i}>
-                    <div className="tk-trow">
-                      <Text className="tk-who">{row.who}</Text>
-                      <Text className="tk-say">{row.text}</Text>
-                    </div>
-                  </Collapse>
-                ))}
-                {s.lines < 3 && (
-                  <div className="tk-trow tk-trow--sk">
-                    <Bar w={28} h={6} tone={3} />
-                    <Bar w={layout === 'compact' ? 210 : 320} h={7} tone={2} />
-                  </div>
-                )}
-              </div>
-
-              <Collapse open={s.summary}>
-                <div className="tk-summary" data-crop>
-                  <Text className="tk-sum-label">Summary</Text>
-                  <div className="tk-sum-body">
-                    <Text className="tk-sum-line">
-                      <strong>Decisions:</strong> Beta ships Friday.
-                    </Text>
-                    <div className="tk-sum-bars">
-                      <Bar w={52} h={6} tone={3} />
-                      <Bar w={layout === 'compact' ? 140 : 200} h={7} tone={2} />
-                    </div>
-                  </div>
-                </div>
-              </Collapse>
-            </div>
-
-            <div className="tk-pill" data-pill={s.pill}>
-              <span className="tk-pill-face" data-on={s.pill === 'idle' || undefined}>
-                <img className="tk-pill-glyph" src="/assets/talky-wave-glyph.svg" width={26} height={11} alt="" />
-              </span>
-              <span className="tk-pill-face" data-on={s.pill === 'recording' || undefined}>
-                <Circle className="tk-pill-rec" size={8} fill="currentColor" strokeWidth={0} />
-                <Text className="tk-pill-label">Recording</Text>
-                <Text className="tk-pill-time">{s.timer}s</Text>
+                <button type="button" className="tk-pill-stop" data-target="stop-meeting" data-cursor="hand" aria-label="Stop">
+                  <span />
+                </button>
               </span>
               <span className="tk-pill-face" data-on={s.pill === 'transcribing' || undefined}>
-                <Square className="tk-pill-spin" size={10} strokeWidth={2} />
-                <Text className="tk-pill-label">Transcribing</Text>
+                <Text className="tk-pill-label tk-pill-label--dim">Transcribing</Text>
+                <span className="tk-pill-dots" aria-hidden="true">
+                  <span /><span /><span />
+                </span>
               </span>
+            </div>
+          </Collapse>
+
+          <div className="tk-win" data-layout={layout}>
+            <header className="tk-win-chrome">
+              <span className="tk-lights" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
+              <Text className="tk-win-title">Scratchpad</Text>
+              <span className="tk-win-search">
+                <Bar w={layout === 'compact' ? 72 : 88} h={6} tone={3} />
+              </span>
+            </header>
+            <div className="tk-win-body">
+              {layout === 'wide' && (
+                <aside className="tk-side" data-crop>
+                  <div className="tk-side-item tk-side-item--on">
+                    <Text className="tk-side-title">Product sync with design</Text>
+                    <Text className="tk-side-time">9:41</Text>
+                    <Text className="tk-side-snippet">Me: Let's start with the launch checklist.</Text>
+                    <Text className="tk-side-meta">Meeting, 3 speakers, 42 min</Text>
+                  </div>
+                  {[['Roadmap thoughts', '9:12'], ['Reply to Anna', 'Yesterday']].map(([t, when]) => (
+                    <div key={t} className="tk-side-item tk-side-item--faint">
+                      <Text className="tk-side-title">{t}</Text>
+                      <Text className="tk-side-time">{when}</Text>
+                      <Bar w={108} h={6} tone={2} />
+                    </div>
+                  ))}
+                </aside>
+              )}
+
+              <main className="tk-main">
+                <div className="tk-main-head">
+                  <div className="tk-main-titles">
+                    <Text className="tk-meet-title">Product sync with design</Text>
+                    <Text className="tk-meet-meta">
+                      {layout === 'compact'
+                        ? 'Today, 9:41 | Meeting | 42 min'
+                        : 'Today, 9:41 | Meeting | 42 min | Me, Speaker 1, Speaker 2'}
+                    </Text>
+                  </div>
+                  <div className="tk-seg">
+                    <span data-on={s.tab === 'transcript' || undefined}>Transcript</span>
+                    <span data-on={s.tab === 'summary' || undefined}>Summary</span>
+                  </div>
+                  <Bar w={layout === 'compact' ? 72 : 92} h={22} r={11} tone={4} />
+                </div>
+
+                <Collapse open={s.tab === 'transcript'}>
+                  <div className="tk-transcript">
+                    {TRANSCRIPT.map((row, i) => (
+                      <Collapse key={row.at} open={s.lines > i}>
+                        <div className="tk-tline">
+                          <span className="tk-tline-head">
+                            <Text className={`tk-speaker tk-speaker--${row.color}`}>{row.who}</Text>
+                            <Text className="tk-ts">{row.at}</Text>
+                          </span>
+                          <Text className="tk-line">{row.text}</Text>
+                        </div>
+                      </Collapse>
+                    ))}
+                    {s.lines < 3 && (
+                      <div className="tk-tline tk-tline--sk">
+                        <Bar w={48} h={6} tone={3} />
+                        <Bar w={layout === 'compact' ? 180 : 280} h={7} tone={2} />
+                      </div>
+                    )}
+                  </div>
+                </Collapse>
+
+                <Collapse open={s.tab === 'summary'}>
+                  <div className="tk-summary">
+                    <Text className="tk-sum-kicker">Summary</Text>
+                    <ul className="tk-sum-list">
+                      <li>The launch checklist was reviewed and the permissions flow is done.</li>
+                      <li>Still to test: Accessibility on a fresh install and the menu bar states.</li>
+                      <li>Decision: ship the beta on Friday.</li>
+                    </ul>
+                    <Text className="tk-sum-note">Generated on this Mac with Apple Intelligence. Nothing leaves your computer.</Text>
+                  </div>
+                </Collapse>
+
+                <Collapse open={s.saved}>
+                  <p className="tk-save-banner" data-target="save-banner">
+                    Saved to ~/Documents/Talky/Meetings
+                  </p>
+                </Collapse>
+              </main>
             </div>
           </div>
 
           <div className="tk-menu" data-show={s.menu || undefined}>
-            <div className="tk-menu-panel">
-              <button type="button" className="tk-menu-row" data-target="record-meeting" data-cursor="hand">
-                <Text>Record meeting</Text>
-              </button>
-              <div className="tk-menu-row tk-menu-row--faint">
-                <Bar w={98} h={7} tone={3} />
+            <div className="tk-menu-panel" data-target="talky-menu">
+              <div className="tk-menu-status">
+                <span className="tk-status-dot" />
+                <Text>Ready to listen</Text>
               </div>
               <div className="tk-menu-row tk-menu-row--faint">
-                <Bar w={76} h={7} tone={3} />
+                <Text>Start listening</Text>
+                <span className="tk-menu-keys">
+                  <Kbd keys={['⌃', '⇧']} />
+                </span>
+              </div>
+              <button type="button" className="tk-menu-row" data-target="start-meeting" data-cursor="hand">
+                <Text>Start meeting</Text>
+              </button>
+              <div className="tk-menu-row tk-menu-row--faint">
+                <Bar w={layout === 'compact' ? 92 : 104} h={7} tone={3} />
               </div>
               <div className="tk-menu-row tk-menu-row--faint">
                 <Bar w={88} h={7} tone={3} />
               </div>
+              <div className="tk-menu-divider" />
+              <div className="tk-menu-row tk-menu-row--faint">
+                <Bar w={72} h={7} tone={3} />
+              </div>
             </div>
           </div>
-
-          <Toast show={s.toast} className="tk-toast">
-            Saved to Talky/Meetings
-          </Toast>
 
           <span data-target="rest" style={{ position: 'absolute', ...REST[layout] }} />
         </>

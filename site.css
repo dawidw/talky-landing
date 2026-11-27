@@ -480,7 +480,7 @@ nav .nav-toggle {
   margin: 0 auto;
   max-width: min(720px, 100%);
   width: 100%;
-  min-height: clamp(260px, 68vw, 340px);
+  min-height: clamp(280px, 68vw, 400px);
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -488,24 +488,18 @@ nav .nav-toggle {
   background: #0a0a0b;
 }
 
-.talky-stage-host .ss-fit,
-.talky-stage-host .ss-stage {
-  width: 100%;
-  height: auto;
-}
-
 @media (min-width: 768px) {
   .talky-stage-host {
     min-height: 0;
-    aspect-ratio: 720 / 340;
-    max-height: min(340px, calc(100svh - 24.5rem));
+    aspect-ratio: 720 / 400;
+    max-height: min(400px, calc(100svh - 22rem));
   }
 }
 
 @media (max-width: 559px) {
   .talky-stage-host {
-    aspect-ratio: 358 / 320;
-    max-height: min(320px, 92vw);
+    aspect-ratio: 358 / 360;
+    max-height: min(360px, 92vw);
   }
 }
 
