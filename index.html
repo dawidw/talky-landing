@@ -4,23 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Talky: Talk. It types and summarizes. | Dictation for Mac</title>
-  <meta name="description" content="Hold Control and Shift, speak, and your words appear at the cursor. Local dictation and meeting notes on your Mac. No account. No cloud transcription.">
+  <title>Talky: Talk. It types and summarizes.</title>
+  <meta name="description" content="Dictation, voice memos, and meetings for Mac. Everything's local, no audio goes to Talky servers.">
   <link rel="canonical" href="https://talky.dawidw.pl/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Talky: Talk. It types and summarizes.">
-  <meta property="og:description" content="Dictation and meeting notes for Mac. Speech stays on your Mac. Coming soon.">
+  <meta property="og:description" content="Dictation, voice memos, and meetings for Mac. Everything's local, no audio goes to Talky servers.">
   <meta property="og:url" content="https://talky.dawidw.pl/">
-  <meta property="og:image" content="https://talky.dawidw.pl/og-image.png">
+  <meta property="og:image" content="https://talky.dawidw.pl/og-v4.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Talky: Talk. It types and summarizes.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Talky: Talk. It types and summarizes.">
-  <meta name="twitter:description" content="Dictation and meeting notes for Mac. Local Parakeet transcription. Coming soon.">
-  <meta name="twitter:image" content="https://talky.dawidw.pl/og-image.png">
+  <meta name="twitter:description" content="Dictation, voice memos, and meetings for Mac. Everything's local, no audio goes to Talky servers.">
+  <meta name="twitter:image" content="https://talky.dawidw.pl/og-v4.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=appfeat1">
-  <link rel="stylesheet" href="/hero-demo.css?v=4">
+  <link rel="stylesheet" href="/site.css?v=hero-local">
+  <link rel="stylesheet" href="/assets/talky-demo/talky-demo.css?v=10">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +31,7 @@
     "name": "Talky",
     "description": "Talky is a native macOS app for hold-to-talk dictation, voice memos, and meeting transcription with speaker labels. Speech is transcribed locally on your Mac. Optional API key for summary and text polish.",
     "url": "https://talky.dawidw.pl/",
-    "image": "https://talky.dawidw.pl/og-image.png",
+    "image": "https://talky.dawidw.pl/og-v4.png",
     "operatingSystem": "macOS",
     "applicationCategory": "ProductivityApplication",
     "author": {
@@ -64,10 +67,13 @@
     <section class="hero wrap">
       <p class="hero-badges">
         <span class="tag tag-soon">Coming soon</span>
-        <span class="tag">Dictation and meetings on Mac</span>
+        <span class="hero-eyebrow">Dictation, voice memos, and meetings</span>
       </p>
       <h1>Talk. It types and summarizes.</h1>
-      <p class="lead">Hold <span class="kbd">⌃⇧</span>, speak, and your words appear where your cursor is. Dictation, voice memos, and meetings run on your Mac. Audio does not go to Talky servers.</p>
+      <p class="lead">
+        <span class="lead-line">Hold <span class="kbd-group" aria-label="Control Shift"><span class="kbd">⌃</span><span class="kbd">⇧</span></span>, speak, and your words appear where your cursor is.</span>
+        <span class="lead-line lead-line--local">Everything's local, no audio goes to Talky servers. We don't even have servers!</span>
+      </p>
       <div class="ctas">
         <span class="btn-primary lg btn-coming-soon" role="status">Coming soon</span>
         <a class="btn-secondary" href="#how">See how it works</a>
@@ -75,45 +81,12 @@
       <p class="fine">No account. Works offline. macOS 14.2 or later.</p>
 
       <div class="demo-wrap">
-        <div class="hero-mac-demo" data-hero-demo role="img" aria-label="Animated demo: hold Control and Shift to dictate, Talky pastes your words into a note">
-          <div class="hero-mac-menubar">
-            <span>Finder</span>
-            <span data-hero-clock>9:41</span>
-          </div>
-          <div class="hero-mac-desktop">
-            <div class="hero-doc-win">
-              <div class="hero-doc-title">Quick note</div>
-              <div class="hero-doc-field">
-                <span class="hero-doc-text" data-hero-text></span><span class="hero-doc-caret" aria-hidden="true"></span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-pill-keys" aria-hidden="true">
-            <kbd class="hero-key">⌃</kbd>
-            <kbd class="hero-key">⇧</kbd>
-          </div>
-          <div class="hero-pill-rail">
-            <div class="hero-pill">
-              <div class="hero-pill-body">
-                <div class="hero-pill-face hero-pill-idle is-on" data-face="idle">
-                  <img class="hero-pill-glyph" src="/assets/talky-wave-glyph.svg" width="28" height="12" alt="">
-                </div>
-                <div class="hero-pill-face hero-pill-listen" data-face="listening">
-                  <span class="hero-pill-dot red" aria-hidden="true"></span>
-                  <span class="hero-pill-label">Listening</span>
-                  <span class="hero-pill-timer" data-hero-timer>0:00</span>
-                  <span class="hero-pill-wave" aria-hidden="true">
-                    <span style="--h:6px"></span><span style="--h:10px"></span><span style="--h:14px"></span><span style="--h:8px"></span>
-                    <span style="--h:12px"></span><span style="--h:16px"></span><span style="--h:9px"></span><span style="--h:13px"></span>
-                  </span>
-                </div>
-                <div class="hero-pill-face hero-pill-pasted" data-face="pasted">
-                  <span class="hero-pill-dot green" aria-hidden="true"></span>
-                  <span class="hero-pill-label">Pasted</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div
+          class="talky-stage-host"
+          data-ss-fill
+          data-talky-stageshow
+          role="img"
+          aria-label="Animated demo: Talky pill, Listen, transcribing, copied, then meeting transcript and summary in Scratchpad">
         </div>
       </div>
     </section>
@@ -127,7 +100,7 @@
       <div class="steps steps-how">
         <article class="step">
           <p class="num">1</p>
-          <h3>Hold <span class="kbd">⌃⇧</span></h3>
+          <h3>Hold <span class="kbd-group" aria-label="Control Shift"><span class="kbd">⌃</span><span class="kbd">⇧</span></span></h3>
           <p>Press and hold your dictation shortcut. The pill expands and listens.</p>
         </article>
         <article class="step">
@@ -185,7 +158,7 @@
         <article class="feature feature-with-screen">
           <p class="icon-tile"><img src="/assets/icons/users.svg" alt=""></p>
           <h3>Meetings without a bot</h3>
-          <p>Capture your mic and system audio from Zoom or Meet. No participant joins the call. Speaker labels on the transcript. When the meeting ends, Talky can generate a summary automatically. Action items and Decisions in markdown, with Regenerate and your own summary instructions in Settings.</p>
+          <p>Capture your mic and system audio from Zoom or Meet. No participant joins the call. Speaker labels on the transcript. Summaries with Action items and Decisions, plus your own summary instructions in Settings.</p>
           <figure class="feature-screen">
             <picture>
               <source type="image/webp" srcset="/assets/screens/scratchpad-meeting@2x.webp?v=sharp3" sizes="560px">
@@ -196,7 +169,7 @@
         <article class="feature feature-with-screen">
           <p class="icon-tile"><img src="/assets/icons/scratchpad.svg" alt=""></p>
           <h3>Scratchpad and history</h3>
-          <p>Every dictation, memo, and meeting in one searchable timeline. Meetings can open on the Summary tab when it is ready, with Transcript one tap away.</p>
+          <p>Every dictation, memo, and meeting in one searchable timeline. Summaries stay next to the transcript.</p>
           <figure class="feature-screen">
             <picture>
               <source type="image/webp" srcset="/assets/screens/scratchpad-summary@2x.webp?v=sharp3" sizes="560px">
@@ -211,13 +184,14 @@
         </article>
         <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/key.svg" alt=""></p>
-          <h3>Multilingual speech</h3>
-          <p>Default and fallback language in Settings. Parakeet, Whisper turbo, or Whisper large-v3 for transcription, all local.</p>
+          <h3>Your summary rules</h3>
+          <p>On-device summaries on Apple Intelligence (macOS 26), or your provider with a key you add. Custom instructions for tone and structure.</p>
         </article>
       </div>
     </section>
 
-    <section class="section wrap" id="models">
+
+<section class="section wrap" id="models">
       <div class="section-head">
         <p class="eyebrow">Transcription models</p>
         <h2>Small default, bigger options in Settings</h2>
@@ -571,6 +545,6 @@
     </div>
   </footer>
   <script src="/site.js" defer></script>
-  <script src="/hero-demo.js?v=2" defer></script>
+  <script src="/assets/talky-demo/talky-demo.js?v=10" defer></script>
 </body>
 </html>
