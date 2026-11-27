@@ -1,20 +1,32 @@
-/* PROVISIONAL — nadpisz tokenami z /cursor/stores/bot/talky-designs/README.md */
+/* Figma tokens — talky-designs/README.md */
 
 .tk {
-  --tk-pill-height: 32px;
-  --tk-pill-radius: 999px;
-  --tk-pill-bg: #1c1c1e;
-  --tk-pill-border: rgba(255, 255, 255, 0.14);
-  --tk-pill-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  --tk-pill-bg: #1c1c1ee6;
+  --tk-pill-border: #ffffff29;
+  --tk-pill-shadow: 0 2px 10px #00000042;
+  --tk-pill-radius-idle: 18px;
+  --tk-pill-radius-rec: 19px;
 
-  --tk-panel-width: 300px;
-  --tk-panel-radius: 20px;
-  --tk-panel-bg: #1c1c1c;
-  --tk-panel-border: rgba(255, 255, 255, 0.12);
-  --tk-panel-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+  --tk-panel-width: 336px;
+  --tk-panel-radius: 22px;
+  --tk-panel-bg: #1c1c1ee6;
+  --tk-panel-border: #ffffff29;
+  --tk-panel-shadow: 0 14px 36px #00000080;
+
+  --tk-win-bg: #1c1c1e;
+  --tk-side-bg: #232326;
+  --tk-divider: #38383a;
 
   --tk-text-primary: #f5f5f7;
   --tk-text-secondary: #8e8e93;
-  --tk-row-pick: rgba(255, 255, 255, 0.1);
-  --tk-accent-green: #30d158;
+  --tk-text-tertiary: #636366;
+  --tk-rec: #ff453a;
+  --tk-me: #30d158;
+  --tk-speaker1: #0a84ff;
+  --tk-speaker2: #8e8e93;
+  --tk-row-pick: #ffffff17;
+  --tk-seg-track: #ffffff0f;
+  --tk-seg-on: #ffffff24;
+  --tk-hint-bar: #ffffff0a;
+  --tk-stop-fill: #ffffff1f;
 }

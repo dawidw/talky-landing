@@ -1,4 +1,4 @@
-/* Talky stageshow — pill/panel PROVISIONAL until Figma sync (talky-designs). */
+/* Talky stageshow — Figma talky-designs (source of truth). */
 @import './talky-tokens.css';
 
 .tk .ss-stage {
@@ -15,7 +15,7 @@
 .tk-wallpaper {
   position: absolute;
   inset: 0;
-  background: linear-gradient(128deg, #3b2a78 8%, #1d2b53 46%, #0f7a78 86%);
+  background: linear-gradient(90deg, #1d2b53 0%, #4b2a7a 55%, #0f7a78 100%);
 }
 
 .tk-panel-scrim {
@@ -35,11 +35,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 24px;
-  padding: 0 12px;
-  color: #f5f5f7;
-  background: rgba(0, 0, 0, 0.36);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  height: 26px;
+  padding: 0 14px;
+  color: var(--tk-text-primary);
+  font-family: Inter, system-ui, sans-serif;
+  background: #00000066;
+  border-bottom: 1px solid #ffffff14;
 }
 
 .tk-menubar-left,
@@ -50,15 +51,19 @@
 }
 
 .tk-menubar-app {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  color: #f5f5f7;
+  color: var(--tk-text-primary);
+}
+
+.tk-menubar-item {
+  font-weight: 400;
 }
 
 .tk-menubar-clock {
-  font-size: 11px;
-  font-weight: 500;
-  color: #e5e5ea;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--tk-text-primary);
   font-variant-numeric: tabular-nums;
 }
 
@@ -77,9 +82,10 @@
   background: center / contain no-repeat url('./assets/talky-glyph-white.svg');
 }
 
-.tk-glyph--wide {
-  width: 28px;
-  height: 10px;
+.tk-glyph--idle {
+  width: 18px;
+  height: 18px;
+  background-size: contain;
 }
 
 .tk-orb {
@@ -97,129 +103,117 @@
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 
-.tk-talky-pill {
+.tk-talky-pill,
+.tk-rec-pill {
   position: absolute;
-  top: 32px;
+  top: 42px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  min-width: 56px;
-  height: var(--tk-pill-height);
-  padding: 0 16px;
-  border-radius: var(--tk-pill-radius);
+  gap: 8px;
   background: var(--tk-pill-bg);
   border: 1px solid var(--tk-pill-border);
   box-shadow: var(--tk-pill-shadow);
-  cursor: default;
+  backdrop-filter: none;
 }
 
-.tk-talky-pill-dots {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.tk-talky-pill-dots span {
-  display: block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(142, 142, 147, 0.55);
-}
-
-.tk-meeting-pill {
-  position: absolute;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 30;
-  min-width: 52px;
+.tk-talky-pill--idle {
+  width: 52px;
   height: 36px;
-  border-radius: 999px;
-  background: var(--tk-pill-bg);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  padding: 0;
+  border-radius: var(--tk-pill-radius-idle);
+  cursor: pointer;
 }
 
-.tk-meeting-pill[data-pill="meeting"] {
-  min-width: 228px;
+.tk-rec-pill {
+  height: 38px;
+  min-width: 152px;
+  padding: 0 7px 0 15px;
+  border-radius: var(--tk-pill-radius-rec);
+  font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
 }
 
-.tk-meeting-pill[data-pill="transcribing"] {
-  min-width: 148px;
+.tk-rec-pill--processing {
+  min-width: 152px;
+  padding: 0 16px;
 }
 
-.tk-pill-face {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 0 12px;
-  opacity: 0;
-  visibility: hidden;
-  white-space: nowrap;
-  transition: opacity 0.22s ease;
-}
-
-.tk-pill-face[data-on] {
-  opacity: 1;
-  visibility: visible;
+.tk-rec-pill--status {
+  min-width: 113px;
+  padding: 0 29px;
+  gap: 4px;
 }
 
 .tk-rec-dot {
+  flex: none;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ff453a;
-  box-shadow: 0 0 8px rgba(255, 69, 58, 0.5);
+  background: var(--tk-rec);
+}
+
+.tk-status-dot {
+  flex: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tk-me);
 }
 
 .tk-pill-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #f5f5f7;
+  flex: none;
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--tk-text-primary);
+  white-space: nowrap;
 }
 
-.tk-pill-label--dim {
-  color: #aeaeb2;
+.tk-pill-label--status {
+  color: var(--tk-text-secondary);
 }
 
 .tk-pill-time {
-  font-size: 12px;
+  flex: 1;
+  min-width: 2.5em;
+  font-family: 'Roboto Mono', ui-monospace, monospace;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
-  color: #aeaeb2;
+  color: var(--tk-text-secondary);
 }
 
 .tk-pill-wave {
   display: flex;
   align-items: flex-end;
-  gap: 2px;
+  gap: 3px;
+  width: 36px;
   height: 14px;
-  margin-left: 2px;
+  flex: none;
 }
 
 .tk-pill-wave span {
   width: 3px;
-  border-radius: 2px;
-  background: #30d158;
+  border-radius: 1.5px;
+  background: var(--tk-me);
   height: var(--h, 6px);
+}
+
+.tk-pill-wave--silent span {
+  background: var(--tk-text-tertiary);
 }
 
 .tk-pill-stop {
   display: grid;
+  flex: none;
   place-items: center;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   margin-left: 2px;
   border: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: var(--tk-stop-fill);
   cursor: pointer;
 }
 
@@ -227,19 +221,22 @@
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: #f5f5f7;
+  background: var(--tk-text-primary);
 }
 
-.tk-pill-dots {
-  display: flex;
-  gap: 3px;
-}
-
-.tk-pill-dots span {
-  width: 4px;
-  height: 4px;
+.tk-pill-spinner {
+  width: 18px;
+  height: 18px;
+  border: 1.6px solid transparent;
+  border-top-color: var(--tk-me);
   border-radius: 50%;
-  background: #636366;
+  animation: tk-spin 0.85s linear infinite;
+}
+
+@keyframes tk-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .tk-win {
@@ -253,7 +250,7 @@
   height: auto;
   border-radius: 12px;
   overflow: hidden;
-  background: #1a1a1c;
+  background: var(--tk-win-bg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
   display: flex;
@@ -314,14 +311,15 @@
   display: flex;
   min-height: 0;
   overflow: hidden;
-  background: #1a1a1c;
+  background: var(--tk-win-bg);
 }
 
 .tk-side {
   width: 176px;
   flex: none;
   padding: 10px 6px;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--tk-side-bg);
+  border-right: 1px solid var(--tk-divider);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -449,6 +447,11 @@
   font-size: 12px;
 }
 
+.tk .ss-stage[data-layout="compact"] .tk-tline {
+  grid-template-columns: 58px 1fr;
+  gap: 10px;
+}
+
 .tk .ss-stage[data-layout="compact"] .tk-sum-note {
   font-size: 10px;
   line-height: 1.4;
@@ -485,10 +488,17 @@
   padding-top: 4px;
 }
 
-.tk-tline-head {
+.tk-tline {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.tk-tline-cue {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .tk-speaker {
@@ -497,10 +507,13 @@
 }
 
 .tk-speaker--me {
-  color: #30d158;
+  color: var(--tk-me);
 }
 .tk-speaker--s1 {
-  color: #64d2ff;
+  color: var(--tk-speaker1);
+}
+.tk-speaker--s2 {
+  color: var(--tk-speaker2);
 }
 
 .tk-ts {
@@ -532,12 +545,13 @@
   padding-top: 4px;
 }
 
-.tk-sum-kicker {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #8e8e93;
+.tk-sum-h2 {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 590;
+  font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  color: var(--tk-text-primary);
   text-align: left;
 }
 
@@ -581,7 +595,8 @@
 
 .tk-panel {
   position: absolute;
-  top: 44px;
+  top: 52px;
+  font-family: Inter, system-ui, sans-serif;
   left: 50%;
   transform: translateX(-50%);
   z-index: 40;
@@ -663,8 +678,8 @@
 }
 
 .tk-panel-row[data-pick] {
-  background: #2c2c2e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--tk-row-pick);
+  border: 1px solid #ffffff14;
 }
 
 .tk-panel-row[data-pick]:hover,
@@ -759,9 +774,11 @@
 }
 
 .tk-panel-foot {
-  padding: 10px 2px 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 16px;
   margin-top: 4px;
+  border-top: 1px solid #ffffff14;
+  background: var(--tk-hint-bar);
+  border-radius: 0 0 calc(var(--tk-panel-radius) - 4px) calc(var(--tk-panel-radius) - 4px);
 }
 
 .tk-panel-shortcuts {

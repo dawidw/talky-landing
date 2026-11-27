@@ -1,8 +1,7 @@
-/** Figma menubar / idle pill squiggle (not the green app icon). */
-export default function TalkyGlyph({ className, wide }: { className?: string; wide?: boolean }) {
+export default function TalkyGlyph({ className, idle }: { className?: string; idle?: boolean }) {
   return (
     <span
-      className={`tk-glyph${wide ? ' tk-glyph--wide' : ''}${className ? ` ${className}` : ''}`.trim()}
+      className={`tk-glyph${idle ? ' tk-glyph--idle' : ''}${className ? ` ${className}` : ''}`.trim()}
       aria-hidden="true"
     />
   )
