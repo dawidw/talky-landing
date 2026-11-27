@@ -1,21 +1,21 @@
 # Talky
 
-> Talky is a native macOS app for hold-to-talk dictation, a searchable scratchpad, and meeting transcription with speaker labels. Speech is transcribed locally on your Mac with Parakeet. Optional API key for punctuation and grammar clean-up. One-time purchase, no subscription.
+> Talky is a native macOS app for hold-to-talk dictation, voice memos, and meeting transcription with speaker labels. Speech is transcribed locally on your Mac with Parakeet. Optional API key for summary and text polish. Coming soon.
 
 Talky is an independent app built by Dawid Woźniak and Sature.
 
 ## What it does
 
-- Hold Ctrl+Shift to dictate into any text field
-- Scratchpad for dictation and meeting history
-- Meeting notes with Me, Speaker 1, Speaker 2 labels
+- Hold Control+Shift to dictate into any text field
+- Voice memos and searchable scratchpad
+- Meeting notes with speaker labels from mic and system audio
 - Local Parakeet transcription on your Mac
-- Optional bring-your-own-key text improvement (OpenAI, Groq, and similar)
-- One-time purchase of $XX (placeholder)
+- Optional API key for text polish and summaries
+- Coming soon
 
 ## Product
 
-- [Talky](https://talky.dawidw.pl/): landing page with features, pricing, BYOK, and FAQ
+- [Talky](https://talky.dawidw.pl/): landing page with features, privacy, comparison, BYOK, and FAQ
 - [Changelog](https://talky.dawidw.pl/changelog/): what is new in Talky, starting with 0.1.0
 - [Privacy](https://talky.dawidw.pl/privacy.html): audio and transcripts stay on your Mac
 - [Terms](https://talky.dawidw.pl/terms.html): terms of use
