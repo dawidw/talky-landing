@@ -61,10 +61,6 @@
   border-radius: 5px;
 }
 
-.tk-menubar-talky[data-open] {
-  background: rgba(255, 255, 255, 0.14);
-}
-
 .tk-orb {
   display: block;
   width: 14px;
@@ -78,6 +74,38 @@
   border-radius: 50%;
   background: radial-gradient(circle at 35% 32%, #ffffff 0%, #f0f0f2 55%, #c8c8ce 100%);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.tk-talky-pill {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 14px 0 11px;
+  border-radius: 999px;
+  background: rgba(28, 28, 30, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  cursor: default;
+}
+
+.tk-talky-pill-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tk-talky-pill-dots span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(142, 142, 147, 0.55);
 }
 
 .tk-meeting-pill {

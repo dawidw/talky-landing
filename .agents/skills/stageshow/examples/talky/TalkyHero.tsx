@@ -1,8 +1,8 @@
 import { Bar, Collapse, Kbd, Stage, Text, type Act } from '../../kit'
 import './talky.css'
 
-// Talky panel (panel-expanded), Scratchpad meeting transcript, summary saved locally.
-// Loop opens on the panel already visible; the cursor selects Listen, then the meeting flow runs.
+// Floating Talky pill opens the panel; Listen starts meeting transcript; summary saved locally.
+// Not via the menu bar extra — the cursor clicks the idle pill, then Listen in the panel.
 
 type Tab = 'transcript' | 'summary'
 type Pill = 'idle' | 'meeting' | 'transcribing'
@@ -19,8 +19,8 @@ type S = {
 }
 
 const initial: S = {
-  panel: true,
-  listenPick: true,
+  panel: false,
+  listenPick: false,
   meeting: false,
   lines: 0,
   tab: 'transcript',
@@ -67,6 +67,11 @@ const PANEL_ROWS: PanelRow[] = [
 
 async function script(a: Act<S>) {
   await a.wait(800)
+  await a.move('talky-pill')
+  await a.wait(260)
+  await a.click('talky-pill')
+  await a.set({ panel: true, listenPick: true })
+  await a.wait(420)
   await a.move('listen-row')
   await a.wait(280)
   await a.click('listen-row')
@@ -135,11 +140,31 @@ export default function TalkyHero() {
               <Bar w={14} h={10} r={3} tone={3} />
               <Bar w={14} h={10} r={3} tone={3} />
               <Text className="tk-menubar-clock">Thu 9:41</Text>
-              <span className="tk-menubar-talky" data-cursor="hand" data-open={s.panel || undefined}>
+              <span className="tk-menubar-talky" aria-hidden="true">
                 <Orb sm />
               </span>
             </span>
           </div>
+
+          <Collapse open={!s.panel && s.pill === 'idle'}>
+            <button
+              type="button"
+              className="tk-talky-pill"
+              data-target="talky-pill"
+              data-cursor="hand"
+              aria-label="Talky"
+            >
+              <Orb sm />
+              <span className="tk-talky-pill-dots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </span>
+            </button>
+          </Collapse>
 
           <Collapse open={s.pill !== 'idle'}>
             <div className="tk-meeting-pill" data-pill={s.pill}>
