@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { chromium } from '../.agents/skills/stageshow/node_modules/playwright-core/index.mjs'
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const outName = process.argv[2] || 'og-v2.png'
+const outName = process.argv[2] || 'og-v3.png'
 const icon = readFileSync(path.join(rootDir, 'assets/talky-icon.svg'), 'utf8')
 const iconData = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(icon)}`
 
@@ -18,11 +18,7 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
     width:1200px;height:630px;
     font-family:Inter,system-ui,sans-serif;color:#f5f5f7;
     display:flex;align-items:center;padding:0 88px 0 80px;gap:64px;
-    background:
-      radial-gradient(95% 75% at 12% 18%, rgba(29,43,83,0.62) 0%, transparent 58%),
-      radial-gradient(85% 65% at 88% 78%, rgba(75,42,122,0.45) 0%, transparent 52%),
-      radial-gradient(70% 55% at 72% 22%, rgba(15,122,120,0.28) 0%, transparent 48%),
-      #0a0a0b;
+    background:#0b0b0d;
   }
   .icon{flex:none;width:232px;height:232px;filter:drop-shadow(0 14px 36px rgba(0,0,0,0.45))}
   .copy{min-width:0;flex:1}
