@@ -22,7 +22,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/site.css?v=herofix2">
+  <link rel="stylesheet" href="/site.css?v=herofix3">
   <link rel="stylesheet" href="/assets/talky-demo/talky-demo.css?v=10">
   <script type="application/ld+json">
   {
@@ -192,50 +192,164 @@
 
     <section class="section wrap" id="models">
       <div class="section-head">
-        <p class="eyebrow">Transcription models</p>
+        <p class="eyebrow">Models</p>
         <h2>Small default, bigger options in Settings</h2>
-        <p>Every model runs on your Mac. Recordings are not uploaded for transcription.</p>
+        <p>Talky starts light. Download larger speech and summary models in Settings when you need them. European languages and English (US) groups, all on your Mac.</p>
       </div>
-      <div class="models-grid">
-        <article class="model-card model-card-default">
-          <div class="model-card-badge"><p class="model-badge">Default</p></div>
-          <h3>NVIDIA Parakeet TDT v3</h3>
-          <p>Talky ships with Parakeet TDT v3 because it is compact and quick on Apple silicon. It covers 25 European languages plus Auto in the language picker.</p>
-        </article>
-        <article class="model-card">
-          <div class="model-card-badge" aria-hidden="true"></div>
-          <h3>Whisper large-v3 turbo</h3>
-          <p>Download optional in Settings. Runs through WhisperKit when you want a larger Whisper model without the full size of large-v3.</p>
-        </article>
-        <article class="model-card">
-          <div class="model-card-badge" aria-hidden="true"></div>
-          <h3>Whisper large-v3</h3>
-          <p>Also optional in Settings. The most accurate Whisper option in Talky. Slower and heavier on disk and memory than turbo or Parakeet.</p>
-        </article>
+
+      <div class="models-groups">
+        <section class="model-group" aria-labelledby="models-speech-title">
+          <header class="model-group-head">
+            <h3 class="model-group-title" id="models-speech-title">Speech</h3>
+            <p class="model-group-lead">Dictation, voice memos, and meetings. Optional downloads in Settings.</p>
+          </header>
+
+          <div class="model-subgroup">
+            <p class="model-subhead">European languages</p>
+            <div class="models-grid">
+              <article class="model-card model-card-default">
+                <div class="model-card-badge"><p class="model-badge">Default</p></div>
+                <h3>NVIDIA Parakeet TDT v3</h3>
+                <p class="model-size">~470 MB</p>
+                <p>Ships with Talky. Fast on Apple silicon. Strong multilingual dictation for European languages.</p>
+              </article>
+              <article class="model-card">
+                <div class="model-card-badge" aria-hidden="true"></div>
+                <h3>Whisper large-v3 turbo</h3>
+                <p class="model-size">~632 MB</p>
+                <p>Optional in Settings. WhisperKit. Lighter than full large-v3 with solid multilingual accuracy.</p>
+              </article>
+              <article class="model-card">
+                <div class="model-card-badge" aria-hidden="true"></div>
+                <h3>Whisper large-v3</h3>
+                <p class="model-size">~947 MB</p>
+                <p>Optional. Heaviest Whisper in Talky. Best when you want maximum accuracy.</p>
+              </article>
+              <article class="model-card">
+                <div class="model-card-badge" aria-hidden="true"></div>
+                <h3>Whisper medium</h3>
+                <p class="model-size">~1.5 GB</p>
+                <p>Optional. Balance of size and quality for European languages.</p>
+              </article>
+              <article class="model-card">
+                <div class="model-card-badge" aria-hidden="true"></div>
+                <h3>Whisper small</h3>
+                <p class="model-size">~216 MB</p>
+                <p>Optional. The smallest Whisper download in Settings.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="model-subgroup">
+            <p class="model-subhead">English (US)</p>
+            <div class="models-grid models-grid--pair">
+              <article class="model-card">
+                <div class="model-card-badge"><p class="model-badge">Recommended</p></div>
+                <h3>Parakeet TDT v2</h3>
+                <p class="model-size">~470 MB</p>
+                <p>Optional in Settings. English-optimized Parakeet. Fast, accurate English speech.</p>
+              </article>
+              <article class="model-card">
+                <div class="model-card-badge" aria-hidden="true"></div>
+                <h3>distil-whisper large-v3</h3>
+                <p class="model-size">~594 MB</p>
+                <p>Optional. Distilled Whisper large-v3 tuned for efficient English dictation.</p>
+              </article>
+            </div>
+          </div>
+        </section>
       </div>
+
       <p class="models-note">Download, switch, or remove speech models in Settings. Dictation still works offline after the model you chose is on your Mac.</p>
+
       <div class="models-subsection">
         <div class="section-head">
           <h2>Local summary models</h2>
-          <p>Separate from speech models. Pick what writes Summary, Action items, and Decisions in Scratchpad. All run on your Mac unless you choose API with your own key.</p>
+          <p>Scratchpad summaries and action items. Apple Intelligence, local MLX downloads, or your API key.</p>
         </div>
-        <div class="models-grid">
-          <article class="model-card">
-            <div class="model-card-badge" aria-hidden="true"></div>
-            <h3>Apple Intelligence</h3>
-            <p>Built in when available on macOS 26. No download. Private on-device summaries.</p>
-          </article>
-          <article class="model-card model-card-default">
-            <div class="model-card-badge"><p class="model-badge">Downloadable</p></div>
-            <h3>MLX on your Mac</h3>
-            <p>Choose from Gemma 3 and Qwen 3 instruct models in Settings. Grouped by European languages and English. Download, switch, or remove like speech models.</p>
-          </article>
-          <article class="model-card">
-            <div class="model-card-badge" aria-hidden="true"></div>
-            <h3>API (optional)</h3>
-            <p>When you add an API key and set the meeting summary engine to API, Talky sends transcript text only to your provider.</p>
-          </article>
+
+        <div class="models-groups">
+          <section class="model-group" aria-labelledby="models-summary-title">
+            <header class="model-group-head">
+              <h3 class="model-group-title" id="models-summary-title">Summaries</h3>
+              <p class="model-group-lead">Grouped like Speech in Settings. MLX models download to your Mac.</p>
+            </header>
+
+            <div class="model-subgroup">
+              <p class="model-subhead">European languages</p>
+              <div class="models-grid models-grid--summaries">
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Apple Intelligence</h3>
+                  <p class="model-size">No download</p>
+                  <p>On supported Macs, Talky uses Apple Intelligence with nothing to install.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge"><p class="model-badge">Recommended</p></div>
+                  <h3>Gemma 3 1B Instruct</h3>
+                  <p class="model-size">~735 MB</p>
+                  <p>Optional MLX model. Lightweight Gemma 3 with strong multilingual coverage.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Gemma 3n E2B Instruct</h3>
+                  <p class="model-size">~2.4 GB</p>
+                  <p>Optional. Efficient Gemma 3n variant for longer meeting notes.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Gemma 3 4B Instruct</h3>
+                  <p class="model-size">~6.4 GB</p>
+                  <p>Optional. Higher quality multilingual summaries. Best with 16 GB RAM or more.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="model-subgroup">
+              <p class="model-subhead">English (US)</p>
+              <div class="models-grid models-grid--summaries">
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Qwen3 0.6B</h3>
+                  <p class="model-size">~650 MB</p>
+                  <p>Optional. Fastest local model for short English memos and quick drafts.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge"><p class="model-badge">Recommended</p></div>
+                  <h3>Qwen3 1.7B Instruct</h3>
+                  <p class="model-size">~1.0 GB</p>
+                  <p>Optional. Balanced Qwen3 instruct model. Strong default for English meeting summaries.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Qwen3 4B Instruct</h3>
+                  <p class="model-size">~2.1 GB</p>
+                  <p>Optional. Sharper English phrasing and structure for dense transcripts.</p>
+                </article>
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>Qwen3 8B</h3>
+                  <p class="model-size">~4.3 GB</p>
+                  <p>Optional. Top local English quality. Large download, needs plenty of RAM.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="model-subgroup">
+              <p class="model-subhead">Cloud (optional)</p>
+              <div class="models-grid models-grid--pair">
+                <article class="model-card">
+                  <div class="model-card-badge" aria-hidden="true"></div>
+                  <h3>API with your key</h3>
+                  <p class="model-size">No download</p>
+                  <p>When you add an API key and set the meeting summary engine to API, Talky sends transcript text only to your provider.</p>
+                </article>
+              </div>
+            </div>
+          </section>
         </div>
+
+        <p class="models-note">Pick speech and summary models in Talky Settings. After download, dictation and summaries stay on your Mac.</p>
       </div>
     </section>
 
