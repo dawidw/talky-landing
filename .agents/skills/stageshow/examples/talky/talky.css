@@ -815,8 +815,11 @@
 }
 
 .tk-panel-foot--tight .tk-panel-shortcuts {
-  gap: 6px;
+  gap: 4px;
   font-size: 11px;
+  transform: scale(0.93);
+  transform-origin: left center;
+  width: calc(100% / 0.93);
 }
 
 .tk-panel-foot--tight .tk-panel-hint-kbd .ss-kbd__key {
