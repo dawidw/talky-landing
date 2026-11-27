@@ -352,6 +352,14 @@ nav .nav-toggle {
   text-align: center;
 }
 
+.compare-scroll-hint {
+  display: none;
+  margin-top: var(--space-6);
+  font-size: 13px;
+  color: var(--tertiary);
+  text-align: center;
+}
+
 .closing .tag-soon {
   margin: 0 auto var(--space-4);
 }
@@ -932,14 +940,44 @@ nav .nav-toggle {
 }
 
 @media (max-width: 760px) {
-  .compare-cards {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-    margin-top: var(--stack-sm);
+  .compare-scroll-hint {
+    display: block;
   }
 
   .compare-scroll {
+    display: block;
+    margin-top: var(--space-4);
+    margin-left: calc(-1 * var(--pad));
+    margin-right: calc(-1 * var(--pad));
+    width: calc(100% + 2 * var(--pad));
+    max-width: 100vw;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .compare-table {
+    min-width: 720px;
+    font-size: 13px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 14px 16px;
+  }
+
+  .compare-table thead th:first-child,
+  .compare-table tbody th.row-label {
+    width: 148px;
+    min-width: 148px;
+    max-width: 148px;
+  }
+
+  .compare-table td {
+    min-width: 140px;
+  }
+
+  .compare-cards {
     display: none;
   }
 }
