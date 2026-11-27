@@ -240,18 +240,22 @@
       </div>
       <p class="models-note">Download, switch, or remove speech models in Settings. Dictation still works offline after the model you chose is on your Mac.</p>
       <div class="section-head section-head-tight">
-        <h2 class="h3-sized">Meeting summary engines</h2>
-        <p>Separate from speech models. Pick how Talky writes Summary, Action items, and Decisions in Scratchpad.</p>
+        <h2 class="h3-sized">Local summary models</h2>
+        <p>Separate from speech models. Pick what writes Summary, Action items, and Decisions in Scratchpad. All run on your Mac unless you choose API with your own key.</p>
       </div>
-      <div class="models-grid models-grid-duo">
+      <div class="models-grid">
+        <article class="model-card">
+          <h3>Apple Intelligence</h3>
+          <p>Built in when available on macOS 26. No download. Private on-device summaries.</p>
+        </article>
         <article class="model-card model-card-default">
-          <p class="model-badge">Default when available</p>
-          <h3>On-device (Apple)</h3>
-          <p>Uses Apple Intelligence on macOS 26. Summaries stay on your Mac. Works with your custom summary instructions.</p>
+          <p class="model-badge">Downloadable</p>
+          <h3>MLX on your Mac</h3>
+          <p>Choose from Gemma 3 and Qwen 3 instruct models in Settings. Grouped by European languages and English. Download, switch, or remove like speech models.</p>
         </article>
         <article class="model-card">
-          <h3>API (higher quality)</h3>
-          <p>Optional when you add your own API key. Same markdown format and instructions, sent as text only.</p>
+          <h3>API (optional)</h3>
+          <p>When you add an API key and set the meeting summary engine to API, Talky sends transcript text only to your provider.</p>
         </article>
       </div>
     </section>
@@ -265,7 +269,7 @@
         <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/shield.svg" alt=""></p>
           <h3>Guided onboarding</h3>
-          <p>Microphone, accessibility for paste, optional system audio and screen recording. Talky downloads the default speech model while you grant access.</p>
+          <p>Microphone, accessibility for paste, and system audio for meetings. You pick a summary model by language group and Talky downloads your speech and summary choices when you finish setup.</p>
         </article>
         <article class="feature">
           <p class="icon-tile"><img src="/assets/icons/clean.svg" alt=""></p>
@@ -298,14 +302,14 @@
     <section class="section wrap" id="details">
       <div class="section-head">
         <p class="eyebrow">Small things</p>
-        <h2>Polish that shows in daily use</h2>
+        <h2>Details that add up in daily use</h2>
       </div>
       <ul class="small-things">
         <li>Paste at the cursor in any app using accessibility, only when you dictate</li>
         <li>Pill shows idle, listening, recording, processing, and pasted states with a live waveform while you speak</li>
         <li>25 European languages plus Auto, with a fallback language in Settings</li>
         <li>Offline dictation after the local speech model is installed</li>
-        <li>Meeting summaries: on-device Apple engine or your API key, with custom instructions</li>
+        <li>Meeting summaries: Apple Intelligence, local MLX models, or your API key, with custom instructions</li>
         <li>Calendar nudges from the pill before your next meeting</li>
         <li>Menu bar app with no dock icon</li>
       </ul>
