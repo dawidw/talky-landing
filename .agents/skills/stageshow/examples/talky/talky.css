@@ -70,6 +70,18 @@
   border-radius: 5px;
 }
 
+.tk-glyph {
+  display: block;
+  width: 18px;
+  height: 8px;
+  background: center / contain no-repeat url('./assets/talky-glyph-white.svg');
+}
+
+.tk-glyph--wide {
+  width: 28px;
+  height: 10px;
+}
+
 .tk-orb {
   display: block;
   width: 14px;
@@ -93,9 +105,11 @@
   z-index: 30;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 0;
+  min-width: 56px;
   height: var(--tk-pill-height);
-  padding: 0 14px 0 11px;
+  padding: 0 16px;
   border-radius: var(--tk-pill-radius);
   background: var(--tk-pill-bg);
   border: 1px solid var(--tk-pill-border);
@@ -649,7 +663,8 @@
 }
 
 .tk-panel-row[data-pick] {
-  background: rgba(255, 255, 255, 0.1);
+  background: #2c2c2e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .tk-panel-row[data-pick]:hover,
@@ -744,5 +759,25 @@
 }
 
 .tk-panel-foot {
-  padding: 10px 4px 2px;
+  padding: 10px 2px 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 4px;
+}
+
+.tk-panel-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.tk-panel-shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tk-panel-shortcut-label {
+  font-size: 10px;
+  color: #636366;
 }

@@ -4,7 +4,7 @@
 
 Pliki i tokeny: **`/cursor/stores/bot/talky-designs/`** (README + PNG @2x).
 
-Do czasu dopasowania 1:1 UI w `TalkyHero` / `talky.css` jest **prowizoryczne** i nie odzwierciedla aktualnego Figma.
+PNG w `assets/figma/` (sync z `talky-designs/`). Push na `main` na bieżąco po QA.
 
 ## Beats (logic — gotowe)
 
@@ -20,7 +20,7 @@ Do czasu dopasowania 1:1 UI w `TalkyHero` / `talky.css` jest **prowizoryczne** i
 3. Dopasuj `TalkyPill` / `TalkyPanel` (wymiary, tła, orb SVG/PNG).
 4. `npm run build` w `talky-demo`, podbij `?v=` w `index.html`.
 5. Sprawdź embed produkcyjny: `node talky-demo/scripts/verify-embed.mjs` (stageshow gra, bez mp4/stilli).
-6. **Merge na `main` dopiero po pełnej weryfikacji** (desktop + compact, brak overlap/overflow/prześwitów) i dopasowaniu do PNG. **Nie pushować na main** wcześniej; praca na branchu, beat screenshots tylko dla agenta (`capture-beats.mjs`).
+6. QA desktop + compact (`capture-beats.mjs`), potem push na `main`.
 
 ## Odtwarzanie na Pages
 

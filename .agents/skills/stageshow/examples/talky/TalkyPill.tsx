@@ -1,5 +1,5 @@
 import { Collapse, Text } from '../../kit'
-import TalkyOrb from './TalkyOrb'
+import TalkyGlyph from './TalkyGlyph'
 
 export type PillMode = 'idle' | 'meeting' | 'transcribing'
 
@@ -21,15 +21,7 @@ export default function TalkyPill({ panelOpen, pill, timer }: Props) {
           data-cursor="hand"
           aria-label="Talky"
         >
-          <TalkyOrb sm />
-          <span className="tk-talky-pill-dots" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </span>
+          <TalkyGlyph wide />
         </button>
       </Collapse>
 

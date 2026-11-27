@@ -1,4 +1,4 @@
-# Talky hero QA (branch only — no merge bez Dawida)
+# Talky hero QA (push na `main` na bieżąco po przejściu checklisty)
 
 - [ ] PNG z `/cursor/stores/bot/talky-designs/` → sync + tokeny
 - [ ] Desktop: idle pill, panel open, meeting, transcript, summary (`npm run capture-beats`)

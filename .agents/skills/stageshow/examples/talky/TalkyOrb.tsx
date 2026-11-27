@@ -1,4 +1,4 @@
-/** White orb — wymiary/kolory z Figmy po sync (talky-designs). */
+/** White orb — menu / brand where Figma uses the flat orb asset. */
 export default function TalkyOrb({ className, sm }: { className?: string; sm?: boolean }) {
   return (
     <span className={`tk-orb${sm ? ' tk-orb--sm' : ''}${className ? ` ${className}` : ''}`.trim()} aria-hidden="true">

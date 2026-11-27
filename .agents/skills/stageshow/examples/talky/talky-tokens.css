@@ -1,15 +1,15 @@
 /* PROVISIONAL — nadpisz tokenami z /cursor/stores/bot/talky-designs/README.md */
 
 .tk {
-  --tk-pill-height: 36px;
+  --tk-pill-height: 32px;
   --tk-pill-radius: 999px;
   --tk-pill-bg: #1c1c1e;
   --tk-pill-border: rgba(255, 255, 255, 0.14);
   --tk-pill-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
 
-  --tk-panel-width: 292px;
-  --tk-panel-radius: 14px;
-  --tk-panel-bg: #2a2a2c;
+  --tk-panel-width: 300px;
+  --tk-panel-radius: 20px;
+  --tk-panel-bg: #1c1c1c;
   --tk-panel-border: rgba(255, 255, 255, 0.12);
   --tk-panel-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
 

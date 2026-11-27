@@ -1,5 +1,5 @@
-import { Bar, Kbd, Text } from '../../kit'
-import TalkyOrb from './TalkyOrb'
+import { Kbd, Text } from '../../kit'
+import TalkyGlyph from './TalkyGlyph'
 
 export type PanelRow = {
   id: string
@@ -30,7 +30,7 @@ export default function TalkyPanel({ open, listenPick, layout }: Props) {
     <div className="tk-panel" data-show={open || undefined} data-target="talky-panel">
       <header className="tk-panel-head">
         <span className="tk-panel-brand">
-          <TalkyOrb sm />
+          <TalkyGlyph />
           <Text className="tk-panel-name">Talky</Text>
         </span>
         <Text className="tk-panel-ready">Ready</Text>
@@ -73,7 +73,27 @@ export default function TalkyPanel({ open, listenPick, layout }: Props) {
         })}
       </div>
       <footer className="tk-panel-foot" data-crop>
-        <Bar w={layout === 'compact' ? 200 : 240} h={6} tone={2} />
+        <div className="tk-panel-shortcuts">
+          <span className="tk-panel-shortcut">
+            <Kbd keys={['⌃', '⌥', 'P']} plain /> <Text className="tk-panel-shortcut-label">panel</Text>
+          </span>
+          <span className="tk-panel-shortcut">
+            <Kbd keys={['⌃', '⇧']} plain /> <Text className="tk-panel-shortcut-label">talk</Text>
+          </span>
+          {layout === 'wide' && (
+            <>
+              <span className="tk-panel-shortcut">
+                <Kbd keys={['↑', '↓']} plain /> <Text className="tk-panel-shortcut-label">move</Text>
+              </span>
+              <span className="tk-panel-shortcut">
+                <Kbd keys={['↵']} plain /> <Text className="tk-panel-shortcut-label">select</Text>
+              </span>
+              <span className="tk-panel-shortcut">
+                <Kbd keys={['esc']} plain /> <Text className="tk-panel-shortcut-label">close</Text>
+              </span>
+            </>
+          )}
+        </div>
       </footer>
     </div>
   )
