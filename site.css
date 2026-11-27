@@ -476,6 +476,39 @@ nav .nav-toggle {
   margin-top: clamp(32px, 5vw, 56px);
 }
 
+.talky-stage-host {
+  margin: 0 auto;
+  max-width: min(720px, 100%);
+  width: 100%;
+  min-height: clamp(260px, 68vw, 340px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  background: #0a0a0b;
+}
+
+.talky-stage-host .ss-fit,
+.talky-stage-host .ss-stage {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .talky-stage-host {
+    min-height: 0;
+    aspect-ratio: 720 / 340;
+    max-height: min(340px, calc(100svh - 24.5rem));
+  }
+}
+
+@media (max-width: 559px) {
+  .talky-stage-host {
+    aspect-ratio: 358 / 320;
+    max-height: min(320px, 92vw);
+  }
+}
+
 .hero-screen {
   margin: 0 auto;
   /* 1680px @3x ÷ 3 DPR = 560px CSS — bez skalowania w górę */

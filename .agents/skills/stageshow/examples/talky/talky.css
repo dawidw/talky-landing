@@ -1,0 +1,346 @@
+/* Talky hero: Mac menubar, scratchpad, pill. Corner bleed on landing gradient host. */
+
+.tk .ss-stage {
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+}
+
+.tk .ss-fit {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tk-scene {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(154deg, #1d2b53 7%, #4b2a7a 46%, #0f7a78 79%);
+}
+
+.tk-menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  padding: 0 10px;
+  font-size: 11px;
+  color: #f5f5f7;
+  background: rgba(0, 0, 0, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tk-menubar-left,
+.tk-menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tk-menubar-right {
+  gap: 8px;
+}
+
+.tk-apple {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  opacity: 0.85;
+}
+
+.tk-menu-item {
+  font-weight: 600;
+  font-size: 11px;
+  color: #f5f5f7;
+}
+
+.tk-menubar-talky {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 18px;
+  border-radius: 5px;
+  transition: background 0.15s ease;
+}
+
+.tk-menubar-talky[data-open] {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.tk-menubar-talky img {
+  border-radius: 4px;
+}
+
+.tk-scratchpad {
+  position: absolute;
+  top: 30px;
+  left: 24px;
+  width: 672px;
+  height: 286px;
+  border-radius: 12px;
+  background: rgba(22, 22, 24, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tk-scene[data-layout="compact"] .tk-scratchpad {
+  left: 12px;
+  width: 358px;
+  height: 290px;
+  top: 24px;
+}
+
+.tk-scratch-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 8px;
+}
+
+.tk-scratch-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5f5f7;
+}
+
+.tk-scratch-meta {
+  min-height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.tk-live {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ff453a;
+}
+
+.tk-live--done {
+  color: #30d158;
+}
+
+.tk-transcript {
+  flex: 1;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.tk-trow {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tk-trow--sk {
+  opacity: 0.55;
+  gap: 7px;
+}
+
+.tk-who {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #8e8e93;
+}
+
+.tk-say {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #e5e5ea;
+  text-align: left;
+}
+
+.tk-summary {
+  padding: 0 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tk-sum-label {
+  padding-top: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8e8e93;
+}
+
+.tk-sum-body {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tk-sum-line {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #e5e5ea;
+  text-align: left;
+}
+
+.tk-sum-line strong {
+  color: #f5f5f7;
+  font-weight: 600;
+}
+
+.tk-sum-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tk-pill {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  min-width: 52px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(28, 28, 30, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: min-width 0.32s cubic-bezier(0.34, 1.15, 0.5, 1);
+}
+
+.tk-pill[data-pill="recording"] {
+  min-width: 164px;
+}
+
+.tk-pill[data-pill="transcribing"] {
+  min-width: 128px;
+}
+
+.tk-pill-face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.24s ease;
+  white-space: nowrap;
+}
+
+.tk-pill-face[data-on] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tk-pill-glyph {
+  opacity: 0.95;
+}
+
+.tk-pill-rec {
+  color: #ff453a;
+}
+
+.tk-pill-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #f5f5f7;
+}
+
+.tk-pill-time {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: #aeaeb2;
+  min-width: 2.2em;
+}
+
+.tk-pill-spin {
+  color: #30d158;
+  animation: tk-spin 0.9s linear infinite;
+}
+
+@keyframes tk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tk-menu {
+  position: absolute;
+  top: 22px;
+  right: 10px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s cubic-bezier(0.34, 1.15, 0.5, 1);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.tk-menu[data-show] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.tk-menu-panel {
+  width: 188px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(44, 44, 46, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.tk-scene[data-layout="compact"] .tk-menu-panel {
+  width: 168px;
+}
+
+.tk-menu-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+}
+
+.tk-menu-row:not(.tk-menu-row--faint):hover,
+.tk-menu-row:not(.tk-menu-row--faint)[data-hover] {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tk-menu-row:not(.tk-menu-row--faint) .ss-text {
+  font-size: 12px;
+  color: #f5f5f7;
+}
+
+.tk-menu-row--faint {
+  padding: 6px 10px;
+}
+
+.tk-toast {
+  left: 16px;
+  right: 16px;
+  bottom: 56px;
+  width: auto;
+  max-width: none;
+  transform: none;
+  justify-content: center;
+  font-size: 11px;
+  text-align: center;
+}

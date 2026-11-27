@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/site.css?v=models1">
-  <link rel="stylesheet" href="/hero-demo.css?v=4">
+  <link rel="stylesheet" href="/assets/talky-demo/talky-demo.css?v=2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,45 +75,11 @@
       <p class="fine">No account. Works offline. macOS 14.2 or later.</p>
 
       <div class="demo-wrap">
-        <div class="hero-mac-demo" data-hero-demo role="img" aria-label="Animated demo: hold Control and Shift to dictate, Talky pastes your words into a note">
-          <div class="hero-mac-menubar">
-            <span>Finder</span>
-            <span data-hero-clock>9:41</span>
-          </div>
-          <div class="hero-mac-desktop">
-            <div class="hero-doc-win">
-              <div class="hero-doc-title">Quick note</div>
-              <div class="hero-doc-field">
-                <span class="hero-doc-text" data-hero-text></span><span class="hero-doc-caret" aria-hidden="true"></span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-pill-keys" aria-hidden="true">
-            <kbd class="hero-key">⌃</kbd>
-            <kbd class="hero-key">⇧</kbd>
-          </div>
-          <div class="hero-pill-rail">
-            <div class="hero-pill">
-              <div class="hero-pill-body">
-                <div class="hero-pill-face hero-pill-idle is-on" data-face="idle">
-                  <img class="hero-pill-glyph" src="/assets/talky-wave-glyph.svg" width="28" height="12" alt="">
-                </div>
-                <div class="hero-pill-face hero-pill-listen" data-face="listening">
-                  <span class="hero-pill-dot red" aria-hidden="true"></span>
-                  <span class="hero-pill-label">Listening</span>
-                  <span class="hero-pill-timer" data-hero-timer>0:00</span>
-                  <span class="hero-pill-wave" aria-hidden="true">
-                    <span style="--h:6px"></span><span style="--h:10px"></span><span style="--h:14px"></span><span style="--h:8px"></span>
-                    <span style="--h:12px"></span><span style="--h:16px"></span><span style="--h:9px"></span><span style="--h:13px"></span>
-                  </span>
-                </div>
-                <div class="hero-pill-face hero-pill-pasted" data-face="pasted">
-                  <span class="hero-pill-dot green" aria-hidden="true"></span>
-                  <span class="hero-pill-label">Pasted</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div
+          class="talky-stage-host"
+          data-talky-stageshow
+          role="img"
+          aria-label="Animated demo: record a meeting from the menu bar, see live speaker labels, and save a summary in Talky">
         </div>
       </div>
     </section>
@@ -512,6 +478,6 @@
     </div>
   </footer>
   <script src="/site.js" defer></script>
-  <script src="/hero-demo.js?v=2" defer></script>
+  <script src="/assets/talky-demo/talky-demo.js?v=2" defer></script>
 </body>
 </html>
